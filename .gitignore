@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+artifacts/
+.env
+.env.*
+!.env.example
+.ssh/
+*.pem
+*.key
+private-key
+__pycache__/
+*.py[cod]
+*.log

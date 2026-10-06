@@ -1,0 +1,21 @@
+[Unit]
+Description=Verdant Guard tower defense game
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/mnt/kindom_rush_like
+ExecStartPre=/usr/sbin/nginx -t -q -p /mnt/kindom_rush_like/ -c nginx.conf
+ExecStart=/usr/sbin/nginx -p /mnt/kindom_rush_like/ -c nginx.conf -g "daemon off;"
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=15
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

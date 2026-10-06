@@ -1,0 +1,42 @@
+import { DOCTRINES, deriveBattleUpgrades, type BattleUpgrades } from './doctrines';
+import { DIFFICULTY_MULTIPLIERS } from './engine';
+import { icon } from './icons';
+import type { ProgressStore } from './progress';
+import type { Difficulty, TowerPriority } from './types';
+
+export const DIFFICULTY_UI: Record<Difficulty, { name: string; description: string; glyph: string }> = {
+  normal: { name: '经典', description: '熟悉道路，练习混合布阵', glyph: 'shield' },
+  veteran: { name: '老兵', description: '厚实的敌军，更考验火力分配', glyph: 'sword' },
+  heroic: { name: '英雄', description: '强敌压境，充分利用英雄与专精', glyph: 'flag' },
+};
+export const PRIORITY_UI: Record<TowerPriority, { name: string; description: string }> = {
+  first: { name: '出口', description: '优先攻击最接近出口的敌人，拦住漏网者。' },
+  strong: { name: '强敌', description: '优先攻击当前生命最多的敌人，集中处理重型目标。' },
+  weak: { name: '残血', description: '优先攻击当前生命最少的敌人，尽快收割。' },
+};
+
+export function difficultyPicker(selected: Difficulty): string {
+  return `<section class="difficulty-picker" aria-label="新战局难度"><div class="difficulty-heading"><strong>挑战强度</strong><small>仅影响新部署 · 继续存档沿用原难度</small></div><div class="difficulty-options">${(Object.keys(DIFFICULTY_UI) as Difficulty[]).map(id => {
+    const entry = DIFFICULTY_UI[id], values = DIFFICULTY_MULTIPLIERS[id];
+    return `<button class="difficulty-choice ${selected === id ? 'chosen' : ''}" data-difficulty="${id}" aria-label="选择${entry.name}难度" aria-pressed="${selected === id}">${icon(entry.glyph)}<span><strong>${entry.name}</strong><small>敌生命 ×${values.hp} · 攻击 ×${values.damage}</small></span></button>`;
+  }).join('')}</div><p>${DIFFICULTY_UI[selected].description}。击杀收益相同，高难度通关可获得独立徽章。</p></section>`;
+}
+
+const percentage = (value: number, inverse = false) => `${inverse ? '−' : '+'}${Math.round(Math.abs(value - 1) * 100)}%`;
+export function trainingSummary(upgrades: BattleUpgrades): string {
+  return `<div class="training-summary"><span>${icon('arrow')}远程攻击 <b>${percentage(upgrades.rangedDamageMultiplier)}</b></span><span>${icon('shield')}驻兵生命 <b>${percentage(upgrades.soldierHpMultiplier)}</b></span><span>${icon('heart')}英雄生命 <b>${percentage(upgrades.heroHpMultiplier)}</b></span><span>${icon('clock')}技能冷却 <b>${percentage(upgrades.skillCooldownMultiplier, true)}</b></span></div>`;
+}
+
+export function doctrineWorkshop(progress: ProgressStore, deployed: BattleUpgrades): string {
+  const available = progress.availableStars(), spent = progress.spentStars(), earned = progress.earnedStars();
+  const chosen = deriveBattleUpgrades(progress.progress.doctrines);
+  const pending = (Object.keys(chosen) as (keyof BattleUpgrades)[]).some(key => Math.abs(chosen[key] - deployed[key]) > 1e-6);
+  return `<div class="training-intro"><div><p>通关获得星级，训练让下一次部署更有优势。每阶消耗 1 星，可免费重新分配。</p><small>重打提升最高星级才会新增可用星；挑战徽章不重复发星。</small></div><div class="training-currency">${icon('star')}<strong>${available}</strong><span>可用星<small>已分配 ${spent} / 已获得 ${earned}</small></span></div></div><div class="doctrine-grid">${Object.values(DOCTRINES).map(doctrine => {
+    const rank = progress.progress.doctrines[doctrine.id] ?? 0, maxed = rank >= doctrine.maxRank;
+    const effect = Math.round(Math.abs(doctrine.effect.perRank * rank) * 100);
+    const nextEffect = Math.round(Math.abs(doctrine.effect.perRank * (rank + 1)) * 100);
+    const sign = doctrine.id === 'focus' ? '−' : '+';
+    const action = rank ? '强化' : '学习';
+    return `<article class="doctrine-card ${rank ? 'trained' : ''}"><div class="doctrine-heading"><span class="doctrine-emblem">${icon(doctrine.icon)}</span><div><small>${doctrine.nameEn}</small><h3>${doctrine.name}</h3></div><b>${sign}${effect}%</b></div><p>${doctrine.description}</p><div class="doctrine-ranks" aria-label="${rank}阶，共3阶">${[1, 2, 3].map(n => `<span class="${n <= rank ? 'earned' : ''}">${n <= rank ? icon('check') : n}</span>`).join('')}</div><button class="doctrine-learn" data-doctrine="${doctrine.id}" aria-label="${maxed ? `${doctrine.name}已精通` : `${action}${doctrine.name}至${rank + 1}阶 消耗1星`}" ${maxed || available < 1 ? 'disabled' : ''}>${icon(maxed ? 'check' : 'star')}<span>${maxed ? '训练完成' : `${action} · 1 星`}</span><b>${maxed ? '3 / 3' : `升至 ${sign}${nextEffect}%`}</b></button></article>`;
+  }).join('')}</div><div class="training-deployment"><strong>${pending ? '新训练已准备好' : '本次部署的训练'}</strong><p>${pending ? '开始新关或重新挑战时生效。继续现有存档会保留其原训练配置。' : '新部署会使用上面的训练配置，进行中的战斗数值保持一致。'}</p>${trainingSummary(pending ? chosen : deployed)}</div><div class="training-footer"><button class="secondary-button" data-action="reset-doctrines" ${spent < 1 ? 'disabled' : ''}>${icon('reset')}免费重新分配 ${spent} 星</button><button class="primary-button" data-action="campaign">${icon('map')}返回战役地图</button></div>`;
+}

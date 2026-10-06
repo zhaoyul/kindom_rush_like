@@ -1,0 +1,2034 @@
+{
+  "version": 1,
+  "provider": "Xiaomi MiMo",
+  "language": "en",
+  "subtitleLanguage": "zh-CN",
+  "apiBase": "https://api.xiaomimimo.com/v1",
+  "generatedAt": "2026-10-06T01:43:55.867924+00:00",
+  "ttsDocumentation": "https://mimo.mi.com/docs/en-US/quick-start/usage-guide/audio/speech-synthesis-v2.5",
+  "asrDocumentation": "https://mimo.mi.com/docs/en-US/quick-start/usage-guide/audio/Speech-Recognition",
+  "asrComparison": "Case/punctuation insensitive; remove ASR language/reasoning control tags, normalize hyphenated words and digit-one formatting. Raw transcripts are retained.",
+  "units": {
+    "hero": {
+      "name": "艾琳",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Mia",
+        "style": "A female elven forest guardian gives a powerful but controlled battle acknowledgment. Speak natural English, clear and confident with a warm luminous alto, crisp pacing and a decisive finish. No music or sound effects.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "My blade guards the ancient forest.",
+          "subtitle": "我的月刃守护古老森林。",
+          "src": "/voices/mimo-en/hero-1.mp3",
+          "duration": 2.8979,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "My blade guards the ancient forest.",
+            "prompt": "A female elven forest guardian gives a powerful but controlled battle acknowledgment. Speak natural English, clear and confident with a warm luminous alto, crisp pacing and a decisive finish. No music or sound effects. Speak only the supplied English sentence exactly once, as a concise battle bark. Use a brisk natural speaking pace, with no repeated words, no added words, and no lengthy pauses.",
+            "preset": "Mia",
+            "requestId": "abcfa12454254a9282295f1435b0866a",
+            "usage": {
+              "completion_tokens": 23,
+              "prompt_tokens": 236,
+              "total_tokens": 259,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 139
+              }
+            },
+            "sourceSha256": "45a5988c39a5489b1abf7744f93e300277bd5a2ffb44bedf1afb62ac367ff9d5"
+          },
+          "quality": {
+            "duration": 2.8979,
+            "peak": 0.66736,
+            "rms": 0.12347,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 17937,
+            "sha256": "41b279805ed4bec4a4bf73c9fef61d118896fa70baa0df8ec06d98f41c70e586",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "1. My blade guards the ancient forest.",
+            "wordErrorRate": 0.0,
+            "requestId": "a89e76c8086b4e188012067437db5f53"
+          }
+        },
+        {
+          "text": "The old trees fight beside us.",
+          "subtitle": "古树与我们并肩而战。",
+          "src": "/voices/mimo-en/hero-2.mp3",
+          "duration": 3.7376,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "The old trees fight beside us.",
+            "prompt": "A female elven forest guardian gives a powerful but controlled battle acknowledgment. Speak natural English, clear and confident with a warm luminous alto, crisp pacing and a decisive finish. No music or sound effects.",
+            "preset": "Mia",
+            "requestId": "6e6eb6b579aa4999b1f728b06d210345",
+            "usage": {
+              "completion_tokens": 28,
+              "prompt_tokens": 200,
+              "total_tokens": 228,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 139
+              }
+            },
+            "sourceSha256": "455f190cd5e39c263cfbd38b13df249eca9e38f0eaab8ef858e00ebbf67beb8d"
+          },
+          "quality": {
+            "duration": 3.7376,
+            "peak": 0.71429,
+            "rms": 0.11306,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 23109,
+            "sha256": "85170cbf7c1680809060eb04b1cc9eba765b323a7f537611f44cdda6cb8c8161",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> The old trees fight beside us.",
+            "wordErrorRate": 0.0,
+            "requestId": "8d591d41cb43491e82ab4eff6a8da5f7"
+          }
+        }
+      ]
+    },
+    "soldier-1": {
+      "name": "林地卫兵",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Milo",
+        "style": "A young male woodland guard, bright earnest tenor and disciplined determination. Give a crisp English battlefield acknowledgment, energetic but clearly articulated. No laughter or sound effects.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Shields up! Hold the line!",
+          "subtitle": "举盾！守住阵线！",
+          "src": "/voices/mimo-en/soldier-1-1.mp3",
+          "duration": 2.3142,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Shields up! Hold the line!",
+            "prompt": "A young male woodland guard, bright earnest tenor and disciplined determination. Give a crisp English battlefield acknowledgment, energetic but clearly articulated. No laughter or sound effects.",
+            "preset": "Milo",
+            "requestId": "38600255ea5c449fadecf3f3d668a1d6",
+            "usage": {
+              "completion_tokens": 19,
+              "prompt_tokens": 183,
+              "total_tokens": 202,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "sourceSha256": "3478fd61d21c52a5c93a24c1f19aaddf7426ccdb87734f1a302d19ecc4cd4d6b"
+          },
+          "quality": {
+            "duration": 2.3142,
+            "peak": 0.68103,
+            "rms": 0.09945,
+            "leadingQuietSeconds": 0.07,
+            "trailingQuietSeconds": 0.11,
+            "bytes": 14489,
+            "sha256": "02b710e521383ee08a29ddc06cbd08cfe065ae475361a0e9ddba29cad0ad5461",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Shields up! Hold the line!",
+            "wordErrorRate": 0.0,
+            "requestId": "66025a2d291f420c9ccf5179aabc792b"
+          }
+        },
+        {
+          "text": "Ready to guard our homeland!",
+          "subtitle": "准备守护我们的家园！",
+          "src": "/voices/mimo-en/soldier-1-2.mp3",
+          "duration": 2.4576,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Ready to guard our homeland!",
+            "prompt": "A young male woodland guard, bright earnest tenor and disciplined determination. Give a crisp English battlefield acknowledgment, energetic but clearly articulated. No laughter or sound effects.",
+            "preset": "Milo",
+            "requestId": "0e9e8d44a431426798dace3d93e17e2b",
+            "usage": {
+              "completion_tokens": 20,
+              "prompt_tokens": 181,
+              "total_tokens": 201,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "sourceSha256": "a422b8628026260fb39af544a8f794c72c1d9177df83c71140138178ad1c8053"
+          },
+          "quality": {
+            "duration": 2.4576,
+            "peak": 0.60233,
+            "rms": 0.1108,
+            "leadingQuietSeconds": 0.07,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 15429,
+            "sha256": "d8130a2e661151a0be744ca25ba2375e33964a44b0a6a4318d17d4bbcb51995a",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Ready to guard our homeland.",
+            "wordErrorRate": 0.0,
+            "requestId": "ac3bd03759ae4fafad6a351ebefcd2b6"
+          }
+        }
+      ]
+    },
+    "reinforcement": {
+      "name": "援军",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Milo",
+        "style": "An upbeat young male scout arrives to help his comrades, warm clear mid-high voice and encouraging urgency. Speak a brisk, natural English battle acknowledgment with a smile in the tone, no laughter.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Reinforcements here! Keep the line steady!",
+          "subtitle": "援军抵达！稳住阵线！",
+          "src": "/voices/mimo-en/reinforcement-1.mp3",
+          "duration": 3.4195,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Reinforcements here! Keep the line steady!",
+            "prompt": "An upbeat young male scout arrives to help his comrades, warm clear mid-high voice and encouraging urgency. Speak a brisk, natural English battle acknowledgment with a smile in the tone, no laughter.",
+            "preset": "Milo",
+            "requestId": "c111dfc621094e01b5fcb822fa940581",
+            "usage": {
+              "completion_tokens": 26,
+              "prompt_tokens": 191,
+              "total_tokens": 217,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "sourceSha256": "9806cc5a669bd2fe3de29bea6c0e53204c0f74488fcde96d7ad256aa2b0d1777"
+          },
+          "quality": {
+            "duration": 3.4195,
+            "peak": 0.73416,
+            "rms": 0.1161,
+            "leadingQuietSeconds": 0.0,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 21071,
+            "sha256": "5c0b613fa658c33b9a9999c9bb8d549f9379903f273e1c6db407eae02c7d1504",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "think>\n<chinese> Reinforcements here. Keep the line steady.",
+            "wordErrorRate": 0.0,
+            "requestId": "bdd0dec55aca4f24bd266ea9722d6020"
+          }
+        },
+        {
+          "text": "Point us toward the next fight.",
+          "subtitle": "指引我们奔赴下一场战斗。",
+          "src": "/voices/mimo-en/reinforcement-2.mp3",
+          "duration": 2.8643,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Point us toward the next fight.",
+            "prompt": "An upbeat young male scout arrives to help his comrades, warm clear mid-high voice and encouraging urgency. Speak a brisk, natural English battle acknowledgment with a smile in the tone, no laughter. Speak only the supplied English sentence exactly once, as a concise battle bark. Use a brisk natural speaking pace, with no repeated words, no added words, and no lengthy pauses.",
+            "preset": "Milo",
+            "requestId": "40e9f3a842b9446ba16bc15f2e3c7164",
+            "usage": {
+              "completion_tokens": 22,
+              "prompt_tokens": 224,
+              "total_tokens": 246,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "sourceSha256": "d0d4c1a62a8ceaa174b1f00eb588fe9148fdc0c88434b159bd57eeeff8020b95"
+          },
+          "quality": {
+            "duration": 2.8643,
+            "peak": 0.68512,
+            "rms": 0.07494,
+            "leadingQuietSeconds": 0.14,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 17780,
+            "sha256": "e2f0506455186c276e7c2e0c717f298689b9c287e3c1199cdaee7b6a8e1e8a67",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Point us toward the next fight.",
+            "wordErrorRate": 0.0,
+            "requestId": "bc043e06135e48eabc16be266c638ddf"
+          }
+        }
+      ]
+    },
+    "soldier-2": {
+      "name": "森林精兵",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Dean",
+        "style": "A professional male forest swordsman in his thirties, steady low-mid voice, clipped military diction and confident resolve. Speak natural English at a brisk commanding pace. No extra sounds.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Stay sharp. Orders are clear.",
+          "subtitle": "保持警觉，军令已明。",
+          "src": "/voices/mimo-en/soldier-2-1.mp3",
+          "duration": 2.8065,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Stay sharp. Orders are clear.",
+            "prompt": "A professional male forest swordsman in his thirties, steady low-mid voice, clipped military diction and confident resolve. Speak natural English at a brisk commanding pace. No extra sounds. Speak only the supplied English sentence exactly once, as a concise battle bark. Use a brisk natural speaking pace, with no repeated words, no added words, and no lengthy pauses.",
+            "preset": "Dean",
+            "requestId": "6a83b02a2e804d6a96f8baa46cfb6b1d",
+            "usage": {
+              "completion_tokens": 22,
+              "prompt_tokens": 244,
+              "total_tokens": 266,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "sourceSha256": "a776c406e8376e9d4fe56b6be0e29532216af706d2256523bc536746292d63d8"
+          },
+          "quality": {
+            "duration": 2.8065,
+            "peak": 0.66537,
+            "rms": 0.08649,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 17467,
+            "sha256": "556f3b26f63523b0e68d3ac3e4bafa92e65e4f0c5cd3383109765da969e8285a",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Stay sharp. Orders are clear.",
+            "wordErrorRate": 0.0,
+            "requestId": "9844f4b2593e419fb8141b45354330ec"
+          }
+        },
+        {
+          "text": "Not one step behind the shield!",
+          "subtitle": "这面盾牌之后，寸步不退！",
+          "src": "/voices/mimo-en/soldier-2-2.mp3",
+          "duration": 2.3244,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Not one step behind this shield!",
+            "prompt": "A professional male forest swordsman in his thirties, steady low-mid voice, clipped military diction and confident resolve. Speak natural English at a brisk commanding pace. No extra sounds.",
+            "preset": "Dean",
+            "requestId": "a17f259ffe0347fe943e22f26e90dc3a",
+            "usage": {
+              "completion_tokens": 19,
+              "prompt_tokens": 208,
+              "total_tokens": 227,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "verifiedText": "Not one step behind the shield!",
+            "sourceSha256": "1d18386112a7cb3e0a9fcac0b16ae27bfc6640322d58c76cc8123574639dcfd9"
+          },
+          "quality": {
+            "duration": 2.3244,
+            "peak": 0.65546,
+            "rms": 0.08353,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 14489,
+            "sha256": "5a3dd2d627a605cd0066dfb64338f093c6dcc3ff6bc3a3ea6e063d439714b256",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Not one step behind the shield.",
+            "wordErrorRate": 0.0,
+            "requestId": "907db68e200842fab034d87fef633a0b"
+          }
+        }
+      ]
+    },
+    "tower-arrow": {
+      "name": "弓箭手",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Milo",
+        "style": "An experienced male ranger with a light precise tenor, quiet concentration and dry confidence. Speak clear English in short decisive phrases, restrained energy and sharp consonants.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Wind is steady. Arrows are ready.",
+          "subtitle": "风向稳定，箭矢已备。",
+          "src": "/voices/mimo-en/tower-arrow-1.mp3",
+          "duration": 3.7551,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Wind is steady. Arrows are ready.",
+            "prompt": "An experienced male ranger with a light precise tenor, quiet concentration and dry confidence. Speak clear English in short decisive phrases, restrained energy and sharp consonants.",
+            "preset": "Milo",
+            "requestId": "8b5bf467a5fb4ebd90660091235f51ab",
+            "usage": {
+              "completion_tokens": 41,
+              "prompt_tokens": 184,
+              "total_tokens": 225,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "sourceSha256": "7973e225bd6624ef6288334aa78f3d7f97914754d51354293db681d98e7e6da7"
+          },
+          "quality": {
+            "duration": 3.7551,
+            "peak": 0.69025,
+            "rms": 0.07594,
+            "leadingQuietSeconds": 0.03,
+            "trailingQuietSeconds": 0.06,
+            "bytes": 23109,
+            "sha256": "d537e78c5c4b216baa9c382802c86274b4e9888275c32826326b47d6a07e55f7",
+            "tempo": 1.5361
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Wind is steady. Arrows are ready.",
+            "wordErrorRate": 0.0,
+            "requestId": "5ace9deced144315b4bd2f68df210b7b"
+          }
+        },
+        {
+          "text": "One clear shot. One fallen foe.",
+          "subtitle": "一箭命中，一敌倒下。",
+          "src": "/voices/mimo-en/tower-arrow-2.mp3",
+          "duration": 3.7638,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "One clear shot. One fallen foe.",
+            "prompt": "An experienced male ranger with a light precise tenor, quiet concentration and dry confidence. Speak clear English in short decisive phrases, restrained energy and sharp consonants.",
+            "preset": "Milo",
+            "requestId": "43b0c9ee5aa547efba8c8de17e4de0db",
+            "usage": {
+              "completion_tokens": 35,
+              "prompt_tokens": 183,
+              "total_tokens": 218,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 130
+              }
+            },
+            "sourceSha256": "8029cbc56a3806c923c80bb228beb4ae60629397fe1f50259506c4282f6dec1f"
+          },
+          "quality": {
+            "duration": 3.7638,
+            "peak": 0.70908,
+            "rms": 0.09599,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.07,
+            "bytes": 23266,
+            "sha256": "ca6f4b4fef0470344fbc0d29fe35ec4239c9f6aa54535621679a5087207159a3",
+            "tempo": 1.26867
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "1 clear shot, 1 fallen foe.",
+            "wordErrorRate": 0.0,
+            "requestId": "03033b7855524ec7895ede599a6f8336"
+          }
+        }
+      ]
+    },
+    "tower-mage": {
+      "name": "奥术法师",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Chloe",
+        "style": "A poised young female arcane mage, cool silky voice, refined precision and understated dangerous confidence. Speak natural English, slightly deliberate and commanding, with clear consonants and no whispering.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "The stars answer my command.",
+          "subtitle": "星辰回应我的号令。",
+          "src": "/voices/mimo-en/tower-mage-1.mp3",
+          "duration": 3.7425,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "The stars answer my command.",
+            "prompt": "A poised young female arcane mage, cool silky voice, refined precision and understated dangerous confidence. Speak natural English, slightly deliberate and commanding, with clear consonants and no whispering.",
+            "preset": "Chloe",
+            "requestId": "a7cbd3e2de274a4194495c829a76ca9c",
+            "usage": {
+              "completion_tokens": 28,
+              "prompt_tokens": 211,
+              "total_tokens": 239,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 155
+              }
+            },
+            "sourceSha256": "790822d0324155e8f58dcf38d224a6daa203326aec4888553a2b7a4b1ceac4d0"
+          },
+          "quality": {
+            "duration": 3.7425,
+            "peak": 0.71216,
+            "rms": 0.12774,
+            "leadingQuietSeconds": 0.0,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 23109,
+            "sha256": "c360841e027f941df2d5ef24a3c9cdeb057c0625a44430f3e9c04db8d806519b",
+            "tempo": 1.0094
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> The stars, answer my command.",
+            "wordErrorRate": 0.0,
+            "requestId": "de5cb4dd9a284f18a53c545fb1b401ab"
+          }
+        },
+        {
+          "text": "Step closer. Feel the arcane storm.",
+          "subtitle": "再靠近些，感受奥术风暴。",
+          "src": "/voices/mimo-en/tower-mage-2.mp3",
+          "duration": 3.7448,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Step closer. Feel the arcane storm.",
+            "prompt": "A poised young female arcane mage, cool silky voice, refined precision and understated dangerous confidence. Speak natural English, slightly deliberate and commanding, with clear consonants and no whispering.",
+            "preset": "Chloe",
+            "requestId": "570d412d9d594426a2a261b6b62b2f72",
+            "usage": {
+              "completion_tokens": 37,
+              "prompt_tokens": 213,
+              "total_tokens": 250,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 155
+              }
+            },
+            "sourceSha256": "2d77c82d321be79973a7b9f32773981b68dd6a8d07aaace920cadb42353ea1b2"
+          },
+          "quality": {
+            "duration": 3.7448,
+            "peak": 0.70834,
+            "rms": 0.12569,
+            "leadingQuietSeconds": 0.0,
+            "trailingQuietSeconds": 0.06,
+            "bytes": 23109,
+            "sha256": "85d1653f4a9eeb42f088125838d39266d516eadf8691a38725fb6e879342ea65",
+            "tempo": 1.40806
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Step closer. Feel the arcane storm.",
+            "wordErrorRate": 0.0,
+            "requestId": "5dd7566794be4b87bd8cc87df398f628"
+          }
+        }
+      ]
+    },
+    "soldier-3": {
+      "name": "圣林禁卫",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Dean",
+        "style": "A veteran royal guard with a firm resonant baritone, disciplined authority and a battle-ready edge. Speak the short English line forcefully and clearly, with a deliberate heroic cadence. No music or sound effects.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "By steel and oath, we stand.",
+          "subtitle": "以钢铁与誓言，坚守此地。",
+          "src": "/voices/mimo-en/soldier-3-1.mp3",
+          "duration": 3.5665,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "id": "soldier-3",
+            "model": "mimo-v2.5-tts",
+            "voice": "Dean",
+            "text": "By steel and oath, we stand.",
+            "seconds": 1.98,
+            "wav_bytes": 184364,
+            "request_id": "8df74d5002d74d25b60b6c1e8bbe01a2",
+            "usage": {
+              "completion_tokens": 26,
+              "prompt_tokens": 212,
+              "total_tokens": 238,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 149
+              }
+            },
+            "sourceSha256": "42f87f07b2f78330a7e46128f1c6a4487418f5a1181be7f8852d10f3304d921f"
+          },
+          "quality": {
+            "duration": 3.5665,
+            "peak": 0.73572,
+            "rms": 0.10567,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.11,
+            "bytes": 22012,
+            "sha256": "3a771d9b869be9d67d12260d2ad2e2cfa3d8c51326a396657891e4f428fc0f7c",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> By steel and oath, we stand.",
+            "wordErrorRate": 0.0,
+            "requestId": "e3b6a8400d404197930ad9cfb830ea1c"
+          }
+        },
+        {
+          "text": "The sacred grove will not fall.",
+          "subtitle": "圣林永不陷落。",
+          "src": "/voices/mimo-en/soldier-3-2.mp3",
+          "duration": 3.2359,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "The sacred grove will not fall.",
+            "prompt": "A veteran royal guard with a firm resonant baritone, disciplined authority and a battle-ready edge. Speak the short English line forcefully and clearly, with a deliberate heroic cadence. No music or sound effects. Speak only the supplied English sentence exactly once, as a concise battle bark. Use a brisk natural speaking pace, with no repeated words, no added words, and no lengthy pauses.",
+            "preset": "Dean",
+            "requestId": "48ad787a13ac41898e67e3ba6a828a2e",
+            "usage": {
+              "completion_tokens": 25,
+              "prompt_tokens": 248,
+              "total_tokens": 273,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 191
+              }
+            },
+            "sourceSha256": "229d807cece270e9225f4029ee181522ac1d2f44c5f7381c7917a11b74459eb0"
+          },
+          "quality": {
+            "duration": 3.2359,
+            "peak": 0.71384,
+            "rms": 0.12041,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.08,
+            "bytes": 19974,
+            "sha256": "5e7d2b60714c751cc53e099fcc8239841404e54367a59490484f76186de45162",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "think>\n<chinese> The sacred grove will not fall.",
+            "wordErrorRate": 0.0,
+            "requestId": "63c91f22de8a46e89394521cd8d2dd7d"
+          }
+        }
+      ]
+    },
+    "tower-barracks": {
+      "name": "驻兵队长",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Dean",
+        "style": "A middle-aged male barracks captain with a hearty gravel-edged baritone and protective camaraderie. Deliver an assertive English command to his squad, bold and brisk rather than angry.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Stand together! Guard this road!",
+          "subtitle": "并肩列阵！守卫这条道路！",
+          "src": "/voices/mimo-en/tower-barracks-1.mp3",
+          "duration": 3.7523,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Stand together! Guard this road!",
+            "prompt": "A middle-aged male barracks captain with a hearty gravel-edged baritone and protective camaraderie. Deliver an assertive English command to his squad, bold and brisk rather than angry.",
+            "preset": "Dean",
+            "requestId": "3b89ca629e704204a1c5e674b8e9a106",
+            "usage": {
+              "completion_tokens": 29,
+              "prompt_tokens": 206,
+              "total_tokens": 235,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 150
+              }
+            },
+            "sourceSha256": "13638a4112bde36db527a9eb2300b2ddf0154e82766f3453fb8fd1b5eb3746d6"
+          },
+          "quality": {
+            "duration": 3.7523,
+            "peak": 0.69781,
+            "rms": 0.11567,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 23109,
+            "sha256": "bb71a6ad9c8df68bc94659a85f5707521db09ef12a5cfe69c5ffde1237332199",
+            "tempo": 1.05288
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Stand together. Guard this road.",
+            "wordErrorRate": 0.0,
+            "requestId": "c40fff73f3a645c495fad06e5b4d2001"
+          }
+        },
+        {
+          "text": "Brothers, rally beneath our banner!",
+          "subtitle": "兄弟们，在军旗下集结！",
+          "src": "/voices/mimo-en/tower-barracks-2.mp3",
+          "duration": 3.63,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Brothers, rally beneath our banner!",
+            "prompt": "A middle-aged male barracks captain with a hearty gravel-edged baritone and protective camaraderie. Deliver an assertive English command to his squad, bold and brisk rather than angry.",
+            "preset": "Dean",
+            "requestId": "84a0b883c1c9496a952e64b847d9d4df",
+            "usage": {
+              "completion_tokens": 27,
+              "prompt_tokens": 207,
+              "total_tokens": 234,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 150
+              }
+            },
+            "sourceSha256": "f8ab1334fc01a1f835939d1455d4fdd4c64deb7e1d156b1a95b98d89afa2854b"
+          },
+          "quality": {
+            "duration": 3.63,
+            "peak": 0.67783,
+            "rms": 0.10421,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.12,
+            "bytes": 22325,
+            "sha256": "80000e23d460a17d6f58f116d2557a2ece8fca2e5be0420e8e535b2e2696a6f7",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Brothers, rally beneath our banner.",
+            "wordErrorRate": 0.0,
+            "requestId": "2c58321dc8c1460faf29a6aba7d7d518"
+          }
+        }
+      ]
+    },
+    "tower-cannon": {
+      "name": "炮塔工匠",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts",
+        "preset": "Dean",
+        "style": "A cheerful older male artillery engineer with a rugged chesty baritone, lively practical confidence and a slightly raspy grin. Speak the English acknowledgment with punchy excitement and clear words, no laughter or explosions.",
+        "consistency": "preset"
+      },
+      "lines": [
+        {
+          "text": "Powder loaded. Let the earth tremble!",
+          "subtitle": "火药装填，让大地震颤！",
+          "src": "/voices/mimo-en/tower-cannon-1.mp3",
+          "duration": 3.7605,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Powder loaded. Let the earth tremble!",
+            "prompt": "A cheerful older male artillery engineer with a rugged chesty baritone, lively practical confidence and a slightly raspy grin. Speak the English acknowledgment with punchy excitement and clear words, no laughter or explosions.",
+            "preset": "Dean",
+            "requestId": "316486fa1db14eb084637b6415fe0c25",
+            "usage": {
+              "completion_tokens": 31,
+              "prompt_tokens": 213,
+              "total_tokens": 244,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 150
+              }
+            },
+            "sourceSha256": "f45dd78c08cc67b2aed7a30be213746c7807517a1567a3395dbffb9f99d58fa8"
+          },
+          "quality": {
+            "duration": 3.7605,
+            "peak": 0.72372,
+            "rms": 0.11354,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.08,
+            "bytes": 23109,
+            "sha256": "b59ae712928e54082f333ffb94d9bbc2b5ce9bd84bdd234700f27db6c7d23b92",
+            "tempo": 1.14133
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "10, powder loaded. Let the earth tremble.",
+            "wordErrorRate": 0.0,
+            "requestId": "dfd9b46f24ef4b4a9d7838c09c7e2018"
+          }
+        },
+        {
+          "text": "Light the fuse! Brace for thunder!",
+          "subtitle": "点燃引线！迎接雷鸣！",
+          "src": "/voices/mimo-en/tower-cannon-2.mp3",
+          "duration": 3.6553,
+          "model": "mimo-v2.5-tts",
+          "generation": {
+            "model": "mimo-v2.5-tts",
+            "text": "Light the fuse! Brace for thunder!",
+            "prompt": "A cheerful older male artillery engineer with a rugged chesty baritone, lively practical confidence and a slightly raspy grin. Speak the English acknowledgment with punchy excitement and clear words, no laughter or explosions.",
+            "preset": "Dean",
+            "requestId": "8a12a37efc0b491a93e5d8277f82c52f",
+            "usage": {
+              "completion_tokens": 28,
+              "prompt_tokens": 211,
+              "total_tokens": 239,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 150
+              }
+            },
+            "sourceSha256": "86f1e21729533925e5fc2c2f16bfe525c1360f242ae0e6b41e4fbb15995ffea3"
+          },
+          "quality": {
+            "duration": 3.6553,
+            "peak": 0.70465,
+            "rms": 0.11976,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.11,
+            "bytes": 22482,
+            "sha256": "de1140a253b23d8cdcaf18d73c0489712fc34d51d48639e9808742a16e5841fe",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "think>\n<chinese> Light the fuse. Brace for thunder.",
+            "wordErrorRate": 0.0,
+            "requestId": "0ad685b4625940fc8abb35808ee7852a"
+          }
+        }
+      ]
+    },
+    "enemy-goblin": {
+      "name": "哥布林",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "An adult male fantasy goblin with a distinctly high, scratchy nasal voice, pinched forward resonance, mischievous greed and sly confidence. Deliver a short English battle taunt with playful bite and very clear words, at a brisk but intelligible pace. No laughter, music or sound effects.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Your shiny gold is mine!",
+          "subtitle": "你的闪亮金币归我了！",
+          "src": "/voices/mimo-en/enemy-goblin-1.mp3",
+          "duration": 3.7473,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "id": "enemy-goblin",
+            "model": "mimo-v2.5-tts-voicedesign",
+            "voice": null,
+            "text": "Your shiny gold is mine!",
+            "seconds": 1.77,
+            "wav_bytes": 276524,
+            "request_id": "fced3034645149d9bac1046680a6d8b0",
+            "usage": {
+              "completion_tokens": 38,
+              "prompt_tokens": 83,
+              "total_tokens": 121,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "33c2f61a3a95ff68242a13a211d6469c1461aef8502cd0d00617e5fc716345d7"
+          },
+          "quality": {
+            "duration": 3.7473,
+            "peak": 0.74014,
+            "rms": 0.11415,
+            "leadingQuietSeconds": 0.03,
+            "trailingQuietSeconds": 0.04,
+            "bytes": 23109,
+            "sha256": "5b61854d079d92e2e7517f2f4b2e2c4a1434ab521eb4d5f6c005858648716d6b",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Your shiny gold is mine.",
+            "wordErrorRate": 0.0,
+            "requestId": "4d2f1c7f26414467b5863c999668bffa"
+          }
+        },
+        {
+          "text": "Too slow! You'll never catch me!",
+          "subtitle": "太慢了！你永远抓不住我！",
+          "src": "/voices/mimo-en/enemy-goblin-2.mp3",
+          "duration": 3.425,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "id": "enemy-goblin",
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Too slow! You'll never catch me!",
+            "wav_bytes": 176684,
+            "request_id": "4975e0c1dba74d098361608f400ebb9a",
+            "reference": "enemy-goblin-1.wav",
+            "referenceSha256": "33c2f61a3a95ff68242a13a211d6469c1461aef8502cd0d00617e5fc716345d7",
+            "sourceSha256": "6106fad34912d9ecf67b16860ad587e0887e7cbdc717dd480ba6feeb4137a0ac"
+          },
+          "quality": {
+            "duration": 3.425,
+            "peak": 0.71277,
+            "rms": 0.09362,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 21228,
+            "sha256": "ac86c74784b6ff3fea45525e5b91895713afc0e2b42c93250cec117b992dd4d7",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Too slow! You'll never catch me.",
+            "wordErrorRate": 0.0,
+            "requestId": "514d002ce0eb4e1188d09f4d7dd9f9ef"
+          }
+        }
+      ]
+    },
+    "enemy-wolf": {
+      "name": "疾风狼",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "An adult male wolf-warrior with a low husky predatory voice, rough breath-edged throat resonance and alert menace. Speak a short English taunt with clear words and measured confidence, not animal noises.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "I can smell your fear.",
+          "subtitle": "我嗅得到你的恐惧。",
+          "src": "/voices/mimo-en/enemy-wolf-1.mp3",
+          "duration": 1.9874,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "I can smell your fear.",
+            "prompt": "An adult male wolf-warrior with a low husky predatory voice, rough breath-edged throat resonance and alert menace. Speak a short English taunt with clear words and measured confidence, not animal noises.",
+            "preset": null,
+            "requestId": "5eebb69020b445c1bdd97a47b7c12bfa",
+            "usage": {
+              "completion_tokens": 22,
+              "prompt_tokens": 63,
+              "total_tokens": 85,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "b369b665756456e4ce094950582e926505f706b1240d3d87858494ef3f211def"
+          },
+          "quality": {
+            "duration": 1.9874,
+            "peak": 0.69778,
+            "rms": 0.10073,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.08,
+            "bytes": 12608,
+            "sha256": "0470120d6afaaa280c1596135818a81d79df5f9cefc7597734b14413067d6d9d",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "1. I can smell your fear.",
+            "wordErrorRate": 0.0,
+            "requestId": "f871bf906b77451fa4dbf4c48ccc3327"
+          }
+        },
+        {
+          "text": "The pack is closing in.",
+          "subtitle": "狼群正在逼近。",
+          "src": "/voices/mimo-en/enemy-wolf-2.mp3",
+          "duration": 1.8384,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "The pack is closing in.",
+            "prompt": "",
+            "preset": null,
+            "requestId": "1153b71ff979489d9f36e4f9729ea844",
+            "usage": {
+              "completion_tokens": 15,
+              "prompt_tokens": 56,
+              "total_tokens": 71,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "b369b665756456e4ce094950582e926505f706b1240d3d87858494ef3f211def",
+            "sourceSha256": "c6c56fbd8bf78ddc3fc060da3c0eca160be64b3201d120d521b41c4bc99b5b7e"
+          },
+          "quality": {
+            "duration": 1.8384,
+            "peak": 0.69363,
+            "rms": 0.10244,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.12,
+            "bytes": 11667,
+            "sha256": "1c1f60ef2093a8d9fd716b1c6cdec0a419a5dc642253c0af2770314d13d46fcf",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " The pack is closing in.",
+            "wordErrorRate": 0.0,
+            "requestId": "9dfedafa885c4f4fb82f78199ca6e0d4"
+          }
+        }
+      ]
+    },
+    "enemy-shaman": {
+      "name": "荒野萨满",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "An elderly female wilderness shaman with a low smoky husky alto, weathered grain, deliberate ritual cadence and ominous calm. Speak clear natural English with solemn intensity, keeping the short line concise rather than chanting.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Ancient spirits, lend me your power.",
+          "subtitle": "远古之灵，赐予我力量。",
+          "src": "/voices/mimo-en/enemy-shaman-1.mp3",
+          "duration": 3.7675,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Ancient spirits, lend me your power.",
+            "prompt": "An elderly female wilderness shaman with a low smoky husky alto, weathered grain, deliberate ritual cadence and ominous calm. Speak clear natural English with solemn intensity, keeping the short line concise rather than chanting.",
+            "preset": null,
+            "requestId": "f1a373b3cb9e4eaabf8623023a8ca9db",
+            "usage": {
+              "completion_tokens": 42,
+              "prompt_tokens": 69,
+              "total_tokens": 111,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "e0d44561d291909de3f85c5be7efe5f6fdafbbcef64f6b741d9c46a17b432e11"
+          },
+          "quality": {
+            "duration": 3.7675,
+            "peak": 0.64032,
+            "rms": 0.12106,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.06,
+            "bytes": 23266,
+            "sha256": "599faa6e8e5d9fde834b6002b00d43ac8f58e055b46b9ff8353128fad28d4676",
+            "tempo": 1.12394
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> Ancient spirits, lend me your power.",
+            "wordErrorRate": 0.0,
+            "requestId": "5047049836604af99ec665b03b8cde5d"
+          }
+        },
+        {
+          "text": "The wilds have chosen your fate.",
+          "subtitle": "荒野已决定你的命运。",
+          "src": "/voices/mimo-en/enemy-shaman-2.mp3",
+          "duration": 3.7425,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "The wilds have chosen your fate.",
+            "prompt": "An elderly female wilderness shaman with a low smoky husky alto, weathered grain, deliberate ritual cadence and ominous calm. Speak clear natural English with solemn intensity, keeping the short line concise rather than chanting. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "6a6c11301f1e40358edfc32842b62181",
+            "usage": {
+              "completion_tokens": 33,
+              "prompt_tokens": 152,
+              "total_tokens": 185,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "e0d44561d291909de3f85c5be7efe5f6fdafbbcef64f6b741d9c46a17b432e11",
+            "sourceSha256": "f69f99f523d8802c88dea4c0ff08edb073f37c9d84af9df8a7e33dd9ae85b219"
+          },
+          "quality": {
+            "duration": 3.7425,
+            "peak": 0.61298,
+            "rms": 0.10658,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.04,
+            "bytes": 23109,
+            "sha256": "23d4afac0790129ddb495f8578c3ebbcad888eedcf3f5c6b53fb7591a3720ae8",
+            "tempo": 1.25119
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> The wilds have chosen your fate.",
+            "wordErrorRate": 0.0,
+            "requestId": "27b9e550d83c4c3aaae4f9aae73f4cf3"
+          }
+        }
+      ]
+    },
+    "enemy-orc": {
+      "name": "兽人战士",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A large middle-aged male orc fighter with a coarse booming bass-baritone, broad chest resonance, thick gravel and impatient battle hunger. Deliver a punchy English threat forcefully but with every word intelligible, no roars or extra sounds.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "My axe hungers for battle!",
+          "subtitle": "我的战斧渴望战斗！",
+          "src": "/voices/mimo-en/enemy-orc-1.mp3",
+          "duration": 3.4986,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "My axe hungers for battle!",
+            "prompt": "A large middle-aged male orc fighter with a coarse booming bass-baritone, broad chest resonance, thick gravel and impatient battle hunger. Deliver a punchy English threat forcefully but with every word intelligible, no roars or extra sounds.",
+            "preset": null,
+            "requestId": "47ca648049d74a2fb4d3d0683a6cfd27",
+            "usage": {
+              "completion_tokens": 26,
+              "prompt_tokens": 70,
+              "total_tokens": 96,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 4
+              }
+            },
+            "sourceSha256": "ff0ddea6308c03c8927839c39e3c936245b5407cfc58ab5ee590539b5d4b9791"
+          },
+          "quality": {
+            "duration": 3.4986,
+            "peak": 0.70026,
+            "rms": 0.11255,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 21542,
+            "sha256": "bc3f1cb0724be6a259582ab2369c4b5a3bf472b8d33461668a00bfba933fc615",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " My axe hungers for battle.",
+            "wordErrorRate": 0.0,
+            "requestId": "04851f307b384914b63cdd1bf6f1c564"
+          }
+        },
+        {
+          "text": "Move aside, or meet my blade!",
+          "subtitle": "让开，否则尝尝我的刀锋！",
+          "src": "/voices/mimo-en/enemy-orc-2.mp3",
+          "duration": 3.7493,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Move aside, or meet my blade!",
+            "prompt": "A large middle-aged male orc fighter with a coarse booming bass-baritone, broad chest resonance, thick gravel and impatient battle hunger. Deliver a punchy English threat forcefully but with every word intelligible, no roars or extra sounds. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "2e70b2cea8f14dd28f64c5124d81363d",
+            "usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 139,
+              "total_tokens": 183,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "ff0ddea6308c03c8927839c39e3c936245b5407cfc58ab5ee590539b5d4b9791",
+            "sourceSha256": "7a86fdee25b7acae604b6da743b3ecfe90f6ee7c97b7a8327c3093f7f620f7ae"
+          },
+          "quality": {
+            "duration": 3.7493,
+            "peak": 0.71652,
+            "rms": 0.12223,
+            "leadingQuietSeconds": 0.02,
+            "trailingQuietSeconds": 0.05,
+            "bytes": 23109,
+            "sha256": "c9eef915c188a7be14378072205c8745fb78e1d0488766697a2cf867f2e4f654",
+            "tempo": 1.66948
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Move aside, or meet my blade.",
+            "wordErrorRate": 0.0,
+            "requestId": "da3a1c2dd8e54151ab2e8db379cf8dfb"
+          }
+        }
+      ]
+    },
+    "enemy-golem": {
+      "name": "岩石巨像",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A colossal ancient stone guardian with an extremely deep masculine bass, weighty rough chest resonance, thick gravel and slow unwavering authority. Speak the short English line clearly with firm separated words, no rumbling sound effects or lengthy pauses.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Stone does not bend or break.",
+          "subtitle": "岩石不会屈服，也不会碎裂。",
+          "src": "/voices/mimo-en/enemy-golem-1.mp3",
+          "duration": 3.75,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Stone does not bend or break.",
+            "prompt": "A colossal ancient stone guardian with an extremely deep masculine bass, weighty rough chest resonance, thick gravel and slow unwavering authority. Speak the short English line clearly with firm separated words, no rumbling sound effects or lengthy pauses. Speak only the supplied English sentence exactly once, as a concise battle bark. Use a brisk natural speaking pace, with no repeated words, no added words, and no lengthy pauses.",
+            "preset": null,
+            "requestId": "ab206f921a2943df895f19ac7dae2d71",
+            "usage": {
+              "completion_tokens": 28,
+              "prompt_tokens": 106,
+              "total_tokens": 134,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "ab423f0670c35b9abc2e6a041daa6c845af54f66239d3e3b893d1e3d35bd09e6"
+          },
+          "quality": {
+            "duration": 3.75,
+            "peak": 0.71542,
+            "rms": 0.10443,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.05,
+            "bytes": 23109,
+            "sha256": "9a86daa0024549ca73193f09870a6a20b0b96fda92a949058015716dbd69c087",
+            "tempo": 1.03975
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Stone does not bend or break.",
+            "wordErrorRate": 0.0,
+            "requestId": "5bd8e7b847c144e1b2cfe705a2773368"
+          }
+        },
+        {
+          "text": "The earth obeys my heavy hand.",
+          "subtitle": "大地听从我的巨掌。",
+          "src": "/voices/mimo-en/enemy-golem-2.mp3",
+          "duration": 3.7703,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "The earth obeys my heavy hand.",
+            "prompt": "Keep the reference speaker's exact timbre and personality. Speak only the supplied English sentence exactly once, clearly at a brisk normal conversational pace. No repeated words, added words, extra sounds or lengthy pauses.",
+            "preset": null,
+            "requestId": "0bc5d8f142bb4a96830c70ae378d9b2c",
+            "usage": {
+              "completion_tokens": 30,
+              "prompt_tokens": 106,
+              "total_tokens": 136,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "ab423f0670c35b9abc2e6a041daa6c845af54f66239d3e3b893d1e3d35bd09e6",
+            "sourceSha256": "1f0b0d2f74146c5d63c0309ed40c706a99436c6d3336c853b05fc94a86c79db3"
+          },
+          "quality": {
+            "duration": 3.7703,
+            "peak": 0.71475,
+            "rms": 0.10357,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.04,
+            "bytes": 23266,
+            "sha256": "a5860671e5665447de9c33c457cbf32a171c12fc8e96f3234280e4480de7a6d3",
+            "tempo": 1.06878
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "<chinese> The earth obeys my heavy hand.",
+            "wordErrorRate": 0.0,
+            "requestId": "273904f0fcf243c599e6371bf4961d0a"
+          }
+        }
+      ]
+    },
+    "enemy-chieftain": {
+      "name": "兽人酋长",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A middle-aged male orc war chief with a broad commanding rough baritone, proud swagger, resonant authority and a forceful battle cadence. Speak the short English taunt boldly and clearly, fierce but controlled rather than a roar.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Our war banner will never fall!",
+          "subtitle": "我们的战旗永不倒下！",
+          "src": "/voices/mimo-en/enemy-chieftain-1.mp3",
+          "duration": 2.6291,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Our war banner will never fall!",
+            "prompt": "A middle-aged male orc war chief with a broad commanding rough baritone, proud swagger, resonant authority and a forceful battle cadence. Speak the short English taunt boldly and clearly, fierce but controlled rather than a roar.",
+            "preset": null,
+            "requestId": "efe569a199824a8e8a36924eefb2a02c",
+            "usage": {
+              "completion_tokens": 23,
+              "prompt_tokens": 70,
+              "total_tokens": 93,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 4
+              }
+            },
+            "sourceSha256": "56eb5af7442947c1d5483aa573f307a0bcca8dcc2f6563d38e48e596a3a1807c"
+          },
+          "quality": {
+            "duration": 2.6291,
+            "peak": 0.68365,
+            "rms": 0.11303,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 16369,
+            "sha256": "d82587bc1dfe20e8f58a82293002d108459c2b74ec0c8d84b253759a31196337",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "think>\n<chinese> Our war banner will never fall.",
+            "wordErrorRate": 0.0,
+            "requestId": "9d1a545b0a0e4484835aaff0ecdc929c"
+          }
+        },
+        {
+          "text": "Your gates will bow before me!",
+          "subtitle": "你们的城门将在我面前屈服！",
+          "src": "/voices/mimo-en/enemy-chieftain-2.mp3",
+          "duration": 3.3547,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Your gates will bow before me!",
+            "prompt": "A middle-aged male orc war chief with a broad commanding rough baritone, proud swagger, resonant authority and a forceful battle cadence. Speak the short English taunt boldly and clearly, fierce but controlled rather than a roar. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "6010cb2552ac47acaf48221e6f0915da",
+            "usage": {
+              "completion_tokens": 26,
+              "prompt_tokens": 135,
+              "total_tokens": 161,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "56eb5af7442947c1d5483aa573f307a0bcca8dcc2f6563d38e48e596a3a1807c",
+            "sourceSha256": "fd96c7e86fa8fd5631b096312238c7794d63803c963a62c9052e5b6dd60106af"
+          },
+          "quality": {
+            "duration": 3.3547,
+            "peak": 0.62817,
+            "rms": 0.11403,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.11,
+            "bytes": 20758,
+            "sha256": "5829954b9073e6b88acf3a352f3736bb7311ab4eaff57cb514d920c1cc3730b1",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Your gates will bow before me.",
+            "wordErrorRate": 0.0,
+            "requestId": "6d68b3f54b3d49d9bd8649b7e16111f9"
+          }
+        }
+      ]
+    },
+    "enemy-serpent": {
+      "name": "毒沼蛇",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "An adult female serpent sorceress with a low silky contralto, close soft sibilants, smooth cold confidence and poisonous amusement. Speak the short English threat clearly, quietly menacing but fully voiced rather than whispering, no added hissing.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Taste the promise of my venom.",
+          "subtitle": "尝尝毒液为你许下的承诺。",
+          "src": "/voices/mimo-en/enemy-serpent-1.mp3",
+          "duration": 3.1574,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Taste the promise of my venom.",
+            "prompt": "An adult female serpent sorceress with a low silky contralto, close soft sibilants, smooth cold confidence and poisonous amusement. Speak the short English threat clearly, quietly menacing but fully voiced rather than whispering, no added hissing.",
+            "preset": null,
+            "requestId": "e3adc9daf6644a51a8b6cdaa40151919",
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 73,
+              "total_tokens": 97,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "f06045dd43ca7fa9c22e66b70175bbe924d557142beae1116c62b19e2c41b019"
+          },
+          "quality": {
+            "duration": 3.1574,
+            "peak": 0.60663,
+            "rms": 0.12176,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 19504,
+            "sha256": "27b107df7c63b110560e36c72d4f71bc483658b299f7e5ea7095ca8a4d07883f",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Taste the promise of my venom.",
+            "wordErrorRate": 0.0,
+            "requestId": "bdb844a8c641455a9fb2e240b50e93e2"
+          }
+        },
+        {
+          "text": "Come closer. My fangs are ready.",
+          "subtitle": "再近一些，我的毒牙已备。",
+          "src": "/voices/mimo-en/enemy-serpent-2.mp3",
+          "duration": 3.7503,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Come closer. My fangs are ready.",
+            "prompt": "An adult female serpent sorceress with a low silky contralto, close soft sibilants, smooth cold confidence and poisonous amusement. Speak the short English threat clearly, quietly menacing but fully voiced rather than whispering, no added hissing. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "a4207554390d4fb4844a1d06ccd388b9",
+            "usage": {
+              "completion_tokens": 44,
+              "prompt_tokens": 140,
+              "total_tokens": 184,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "f06045dd43ca7fa9c22e66b70175bbe924d557142beae1116c62b19e2c41b019",
+            "sourceSha256": "4095d2ec3b021984fa81afdf1a9015c41903484aee28edad5a3da883e806e442"
+          },
+          "quality": {
+            "duration": 3.7503,
+            "peak": 0.65631,
+            "rms": 0.11059,
+            "leadingQuietSeconds": 0.02,
+            "trailingQuietSeconds": 0.07,
+            "bytes": 23109,
+            "sha256": "97f5096a7410142e036bc28022dfeaac37f9c51435d88c5b457ef0512e23ad3b",
+            "tempo": 1.69883
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "Come closer, my fangs are ready.",
+            "wordErrorRate": 0.0,
+            "requestId": "343f4f5dd1fe4e088c23d661ff3d58dd"
+          }
+        }
+      ]
+    },
+    "enemy-icewolf": {
+      "name": "霜狼",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "An adult male frost wolf-warrior with a lean dark mid-low voice, dry cold breath-edged texture, crisp articulation and steel-calm predatory resolve. Speak a concise English line at a measured pace, sharper and cleaner than a growling beast.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Winter sharpens every fang I bear.",
+          "subtitle": "寒冬磨利我的每一颗獠牙。",
+          "src": "/voices/mimo-en/enemy-icewolf-1.mp3",
+          "duration": 2.49,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Winter sharpens every fang I bear.",
+            "prompt": "An adult male frost wolf-warrior with a lean dark mid-low voice, dry cold breath-edged texture, crisp articulation and steel-calm predatory resolve. Speak a concise English line at a measured pace, sharper and cleaner than a growling beast.",
+            "preset": null,
+            "requestId": "e7c239cb9db6415fb2cde39c8715e992",
+            "usage": {
+              "completion_tokens": 19,
+              "prompt_tokens": 76,
+              "total_tokens": 95,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "e2c224fe752c93583f2d6d9670e660585063dfa26b2025d3198df11ae7e26f98"
+          },
+          "quality": {
+            "duration": 2.49,
+            "peak": 0.70184,
+            "rms": 0.10817,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.08,
+            "bytes": 15586,
+            "sha256": "3396f582a3d9d91c01a0b6679406d940346967eed478be4b8fb293abf06d2584",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " Winter sharpens every fang I bear.",
+            "wordErrorRate": 0.0,
+            "requestId": "cbe2112f16dd45288503e675ddb04bcf"
+          }
+        },
+        {
+          "text": "No prey escapes the frozen hunt.",
+          "subtitle": "没有猎物能逃出冰封的追猎。",
+          "src": "/voices/mimo-en/enemy-icewolf-2.mp3",
+          "duration": 3.7493,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "No prey escapes the frozen hunt.",
+            "prompt": "An adult male frost wolf-warrior with a lean dark mid-low voice, dry cold breath-edged texture, crisp articulation and steel-calm predatory resolve. Speak a concise English line at a measured pace, sharper and cleaner than a growling beast. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "ae009598106542d987af6f19f6172e5b",
+            "usage": {
+              "completion_tokens": 30,
+              "prompt_tokens": 135,
+              "total_tokens": 165,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "e2c224fe752c93583f2d6d9670e660585063dfa26b2025d3198df11ae7e26f98",
+            "sourceSha256": "737e7160ee6e8ad808aaa7f23385d676a321581a7efdd785df9056aaa9a78489"
+          },
+          "quality": {
+            "duration": 3.7493,
+            "peak": 0.74387,
+            "rms": 0.09984,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.07,
+            "bytes": 23109,
+            "sha256": "5917f640217ce53d0367de66c33e13e8a52a07b64f86365ed730685f72912556",
+            "tempo": 1.05536
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "No prey escapes the frozen hunt.",
+            "wordErrorRate": 0.0,
+            "requestId": "d92b83b47445481c917aaa659360ed19"
+          }
+        }
+      ]
+    },
+    "enemy-bogling": {
+      "name": "沼泥怪",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A male swamp creature with a low throaty gurgly voice, soft rounded consonants, gravelly thick throat resonance and sluggish sly menace. Speak English words distinctly at a measured pace, preserving intelligibility and avoiding nonverbal creature noises.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "The swamp will swallow you whole.",
+          "subtitle": "沼泽会将你整个吞没。",
+          "src": "/voices/mimo-en/enemy-bogling-1.mp3",
+          "duration": 3.7546,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "The swamp will swallow you whole.",
+            "prompt": "A male swamp creature with a low throaty gurgly voice, soft rounded consonants, gravelly thick throat resonance and sluggish sly menace. Speak English words distinctly at a measured pace, preserving intelligibility and avoiding nonverbal creature noises.",
+            "preset": null,
+            "requestId": "8132c9c540894c859c21712b69c362c5",
+            "usage": {
+              "completion_tokens": 40,
+              "prompt_tokens": 73,
+              "total_tokens": 113,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 4
+              }
+            },
+            "sourceSha256": "c7ce092bda0cd0d612af0752cb289a6ccd2dbdb26799923f4c2bebd549d33917"
+          },
+          "quality": {
+            "duration": 3.7546,
+            "peak": 0.70273,
+            "rms": 0.10819,
+            "leadingQuietSeconds": 0.03,
+            "trailingQuietSeconds": 0.02,
+            "bytes": 23109,
+            "sha256": "22694db707c3f629670a7ebe95330cf7f234d42d7c228d510e550bf2614e1200",
+            "tempo": 1.13215
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "think>\n<chinese> The swamp will swallow you whole.",
+            "wordErrorRate": 0.0,
+            "requestId": "b141c8aaba22444f85c7df2b6207926d"
+          }
+        },
+        {
+          "text": "Every muddy step belongs to me.",
+          "subtitle": "每一步淤泥都属于我。",
+          "src": "/voices/mimo-en/enemy-bogling-2.mp3",
+          "duration": 2.5041,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Every muddy step belongs to me.",
+            "prompt": "Keep the reference speaker's exact timbre and personality. Speak only the supplied English sentence exactly once, clearly at a brisk normal conversational pace. No repeated words, added words, extra sounds or lengthy pauses.",
+            "preset": null,
+            "requestId": "4883d2abde0840f9b0fb7bb26c41f2b0",
+            "usage": {
+              "completion_tokens": 21,
+              "prompt_tokens": 117,
+              "total_tokens": 138,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "c7ce092bda0cd0d612af0752cb289a6ccd2dbdb26799923f4c2bebd549d33917",
+            "sourceSha256": "c9254801b66edeef87cbd63b82e4541d1553c9871a7ee0065a73f9dd68ffa1c8"
+          },
+          "quality": {
+            "duration": 2.5041,
+            "peak": 0.72726,
+            "rms": 0.07532,
+            "leadingQuietSeconds": 0.06,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 15586,
+            "sha256": "dd9476affbb87dfc14f9cbc38d9002fc2cf7baea641dc7fee5b4ebff4be34aa1",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "10. Every muddy step belongs to me.",
+            "wordErrorRate": 0.0,
+            "requestId": "0c49a71f651241c08d199f9c1031fb4f"
+          }
+        }
+      ]
+    },
+    "enemy-frostguard": {
+      "name": "霜铠卫",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A mature male armored winter sentinel with a grave restrained baritone, cool clean chest resonance, formal clipped diction and unyielding discipline. Speak the short English acknowledgment with deliberate military precision, no shouting.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Frostbound armor. An oath unbroken.",
+          "subtitle": "霜封铠甲，誓言不灭。",
+          "src": "/voices/mimo-en/enemy-frostguard-1.mp3",
+          "duration": 3.7609,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Frostbound armor. An oath unbroken.",
+            "prompt": "A mature male armored winter sentinel with a grave restrained baritone, cool clean chest resonance, formal clipped diction and unyielding discipline. Speak the short English acknowledgment with deliberate military precision, no shouting.",
+            "preset": null,
+            "requestId": "ee164f9c2e0440f1b6f3462b1609f8c3",
+            "usage": {
+              "completion_tokens": 30,
+              "prompt_tokens": 67,
+              "total_tokens": 97,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "80a37658aa621a9de9673821741c102fb08fa9f30ffb2065ee255f5a38cfc888"
+          },
+          "quality": {
+            "duration": 3.7609,
+            "peak": 0.71371,
+            "rms": 0.10492,
+            "leadingQuietSeconds": 0.03,
+            "trailingQuietSeconds": 0.07,
+            "bytes": 23109,
+            "sha256": "965b6b05fe0e6e32f4c9cbc850ed0a5c33569b9b686c6544bdb41ada27c66c38",
+            "tempo": 1.10078
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "1. Frost-Bound Armor. An oath unbroken.",
+            "wordErrorRate": 0.0,
+            "requestId": "ef41afbd40f1461291e338a3e0edec8a"
+          }
+        },
+        {
+          "text": "The winter wall marches ever forward.",
+          "subtitle": "凛冬的铁壁永远向前。",
+          "src": "/voices/mimo-en/enemy-frostguard-2.mp3",
+          "duration": 3.7554,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "The winter wall marches ever forward.",
+            "prompt": "A mature male armored winter sentinel with a grave restrained baritone, cool clean chest resonance, formal clipped diction and unyielding discipline. Speak the short English acknowledgment with deliberate military precision, no shouting. Preserve the exact character voice in the reference. Use the same timbre, speaking cadence, and clear English articulation, with no added words.",
+            "preset": null,
+            "requestId": "ea4bdd015d2c45c6b640f1649aa00e82",
+            "usage": {
+              "completion_tokens": 32,
+              "prompt_tokens": 136,
+              "total_tokens": 168,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "80a37658aa621a9de9673821741c102fb08fa9f30ffb2065ee255f5a38cfc888",
+            "sourceSha256": "5fc93b4dd510382f65f81d65176d32a2537faedee002ea782d1f09500e6eff95"
+          },
+          "quality": {
+            "duration": 3.7554,
+            "peak": 0.72009,
+            "rms": 0.10716,
+            "leadingQuietSeconds": 0.04,
+            "trailingQuietSeconds": 0.07,
+            "bytes": 23109,
+            "sha256": "45f8fb087d1d446d95d7cecb6993d5be1574894008595635c9ef51bf52ae0d21",
+            "tempo": 1.17777
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " The winter wall marches ever forward.",
+            "wordErrorRate": 0.0,
+            "requestId": "4f018da94996434d8dda704958136a31"
+          }
+        }
+      ]
+    },
+    "enemy-juggernaut": {
+      "name": "熔铠领主",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A colossal middle-aged male molten warlord with a very deep dark bass, heavy chest resonance, coarse iron-edged throat grain and absolute imperial authority. Speak a concise English threat slowly but clearly, dominant and ominous without roaring or sound effects.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Molten roads open beneath my hammer.",
+          "subtitle": "熔火道路在我的巨锤下展开。",
+          "src": "/voices/mimo-en/enemy-juggernaut-1.mp3",
+          "duration": 3.7399,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Molten roads open beneath my hammer.",
+            "prompt": "A colossal middle-aged male molten warlord with a very deep dark bass, heavy chest resonance, coarse iron-edged throat grain and absolute imperial authority. Speak a concise English threat slowly but clearly, dominant and ominous without roaring or sound effects.",
+            "preset": null,
+            "requestId": "2755f38adfef479db6b0f6737333fe95",
+            "usage": {
+              "completion_tokens": 39,
+              "prompt_tokens": 74,
+              "total_tokens": 113,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 3
+              }
+            },
+            "sourceSha256": "95dfcac29077935217781ec34f8539da4898df88effaa1f1eff804f84e31c79d"
+          },
+          "quality": {
+            "duration": 3.7399,
+            "peak": 0.72763,
+            "rms": 0.11911,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.08,
+            "bytes": 23109,
+            "sha256": "5c8f40ecfa5d81067a08f81e7a6fcabfe1aba92fafb2e7798eb6f051ca953322",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " molten roads open beneath my hammer.",
+            "wordErrorRate": 0.0,
+            "requestId": "6af2440cfd7d43bea86c6e365046d3ab"
+          }
+        },
+        {
+          "text": "Kneel before the throne of fire!",
+          "subtitle": "跪在烈焰王座之前！",
+          "src": "/voices/mimo-en/enemy-juggernaut-2.mp3",
+          "duration": 3.7522,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "Kneel before the throne of fire!",
+            "prompt": "Keep the reference speaker's exact timbre and personality. Speak only the supplied English sentence exactly once, clearly at a brisk normal conversational pace. No repeated words, added words, extra sounds or lengthy pauses.",
+            "preset": null,
+            "requestId": "b4242b7b62f44b538c680f761676eea2",
+            "usage": {
+              "completion_tokens": 41,
+              "prompt_tokens": 118,
+              "total_tokens": 159,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "95dfcac29077935217781ec34f8539da4898df88effaa1f1eff804f84e31c79d",
+            "sourceSha256": "e639da2783ab59f7926252938953ae178f9376c712005bf9260fb7efebba873d"
+          },
+          "quality": {
+            "duration": 3.7522,
+            "peak": 0.75952,
+            "rms": 0.1108,
+            "leadingQuietSeconds": 0.03,
+            "trailingQuietSeconds": 0.06,
+            "bytes": 23109,
+            "sha256": "3afeda6e9df7115cb3bc55c2f166e7ff3b8753c5e52d1a19c655d2b7ee013306",
+            "tempo": 1.5787
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "0<chinese> Kneel before the throne of fire.",
+            "wordErrorRate": 0.0,
+            "requestId": "5736b0f4d4394fc0aa163c3b1453752d"
+          }
+        }
+      ]
+    },
+    "enemy-imp": {
+      "name": "熔火小鬼",
+      "profile": {
+        "language": "en",
+        "model": "mimo-v2.5-tts-voicedesign",
+        "style": "A young adult female fire imp with a distinctly high bright reedy voice, wiry sharp resonance, gleeful mischief and explosive excitement. Speak a quick clear English taunt with playful bite, no laughter, cackling or fire sound effects.",
+        "consistency": "self-reference"
+      },
+      "lines": [
+        {
+          "text": "Burn it all! Watch the sparks!",
+          "subtitle": "烧光一切！看这些火花！",
+          "src": "/voices/mimo-en/enemy-imp-1.mp3",
+          "duration": 2.2229,
+          "model": "mimo-v2.5-tts-voicedesign",
+          "generation": {
+            "model": "mimo-v2.5-tts-voicedesign",
+            "text": "Burn it all! Watch the sparks!",
+            "prompt": "A young adult female fire imp with a distinctly high bright reedy voice, wiry sharp resonance, gleeful mischief and explosive excitement. Speak a quick clear English taunt with playful bite, no laughter, cackling or fire sound effects.",
+            "preset": null,
+            "requestId": "84956e71c5a64c79aed4df1fdfecbb12",
+            "usage": {
+              "completion_tokens": 18,
+              "prompt_tokens": 73,
+              "total_tokens": 91,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 4
+              }
+            },
+            "sourceSha256": "5373837958384a241847479d5895452d2df41a888d199e424c1d4035aa5c6cc5"
+          },
+          "quality": {
+            "duration": 2.2229,
+            "peak": 0.7052,
+            "rms": 0.09806,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.1,
+            "bytes": 14018,
+            "sha256": "0a7264c4d1dae80befab6d46f42c4875d8d90d781daf8911651d07a7dabf6c7b",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": "10. Burn it all. Watch the sparks.",
+            "wordErrorRate": 0.0,
+            "requestId": "7e0da00e2ebe486eaadba8ce07e39152"
+          }
+        },
+        {
+          "text": "One more spark, then everything burns!",
+          "subtitle": "再来一簇火花，一切就会燃烧！",
+          "src": "/voices/mimo-en/enemy-imp-2.mp3",
+          "duration": 3.221,
+          "model": "mimo-v2.5-tts-voiceclone",
+          "generation": {
+            "model": "mimo-v2.5-tts-voiceclone",
+            "text": "One more spark, then everything burns!",
+            "prompt": "Keep the reference speaker's exact timbre and personality. Speak only the supplied English sentence exactly once, clearly at a brisk normal conversational pace. No repeated words, added words, extra sounds or lengthy pauses.",
+            "preset": null,
+            "requestId": "73975b2f6ba84cea90695280434f2ff8",
+            "usage": {
+              "completion_tokens": 25,
+              "prompt_tokens": 96,
+              "total_tokens": 121,
+              "completion_tokens_details": {
+                "reasoning_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "cached_tokens": 9
+              }
+            },
+            "referenceSha256": "5373837958384a241847479d5895452d2df41a888d199e424c1d4035aa5c6cc5",
+            "sourceSha256": "481a6776df4b4dc28112374013f092b8d2a8438f0c5927b909b1708c26c24261"
+          },
+          "quality": {
+            "duration": 3.221,
+            "peak": 0.72546,
+            "rms": 0.10683,
+            "leadingQuietSeconds": 0.05,
+            "trailingQuietSeconds": 0.09,
+            "bytes": 19974,
+            "sha256": "602e4ac773c35fa1b9b85b08d2b6a282ca020ec9af45b793ed560911bf312e51",
+            "tempo": 1.0
+          },
+          "asr": {
+            "model": "mimo-v2.5-asr",
+            "transcript": " One more spark, then everything burns.",
+            "wordErrorRate": 0.0,
+            "requestId": "038ce9703e0545e3afc2ae7a4c488977"
+          }
+        }
+      ]
+    }
+  },
+  "summary": {
+    "units": 21,
+    "clips": 42,
+    "bytes": 856946,
+    "durationSeconds": 138.547,
+    "maxPeak": 0.75952,
+    "minRms": 0.07494,
+    "asrChecked": 42,
+    "asrExact": 42
+  }
+}
