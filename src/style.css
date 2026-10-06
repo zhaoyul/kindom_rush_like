@@ -38,6 +38,13 @@ svg { max-width: 100%; }
 .build-site:focus-visible { outline: 3px solid #f2d586; outline-offset: 2px; background: #e6c67822; }
 .build-site:disabled { pointer-events: none; }
 .battle-topbar { position: absolute; z-index: 4; top: 13px; left: 14px; right: 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; pointer-events: none; }
+.difficulty-trigger { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 53px; padding: 9px 13px; border: 1px solid #b5a36b; border-radius: 8px; color: #cbd5b4; background: linear-gradient(180deg,#3b5139f5,#293e2ef5); box-shadow: inset 0 0 0 2px #152a2040,0 3px 0 #14241b80; white-space: nowrap; font-size: 11px; }
+.difficulty-trigger > .icon { width: 16px; height: 16px; color: #d8c27d; }
+.difficulty-trigger > .icon:last-child { width: 12px; height: 12px; }
+.difficulty-trigger strong { color: #efdfab; font-weight: 600; }
+.difficulty-trigger small { display: none; }
+.difficulty-trigger:hover { background: #47613d; border-color: #e0c888; }
+.difficulty-trigger[data-difficulty-level='nightmare'],.difficulty-trigger[data-difficulty-level='inferno'] { border-color: #c48e77; }
 .resources, .battle-actions { display: flex; align-items: center; pointer-events: auto; background: linear-gradient(180deg, #354534f5, #263629f5); border: 1px solid #b9a56e; border-radius: 9px; box-shadow: 0 3px 0 #14241b80, inset 0 0 0 2px #101e1840, 0 5px 15px #0c201937; }
 .resources { gap: 24px; padding: 10px 18px; min-height: 53px; }
 .resource { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
@@ -621,27 +628,40 @@ dialog::backdrop { background: #0f281dcc; backdrop-filter: blur(4px); }
 .wave-tactical-tip { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-align: left; font-size: 8px; line-height: 1.55; margin-top: 6px; color: #cfd7ae; }
 .wave-intel-link:hover .wave-name { color: #ffdf98; }
 .next-wave-button.early-ready { border-color: #f0d686; background: linear-gradient(140deg,#99834c,#625432); box-shadow: inset 0 0 0 2px #e3cd7e35,0 0 14px #d0b75550; }
-.difficulty-picker { border: 1px solid #bdc5a0; border-radius: 7px; padding: 9px 11px; margin-bottom: 12px; background: #dae2c866; }
-.difficulty-heading { display: flex; justify-content: space-between; gap: 10px; margin-bottom: 7px; color: #496541; }
-.difficulty-heading strong { font-size: 11px; }
-.difficulty-heading small { font-size: 8px; color: #7c8b66; }
-.difficulty-options { display: flex; gap: 7px; }
-.difficulty-choice { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; text-align: left; padding: 7px 9px; border: 1px solid #aebd93; border-radius: 5px; color: #637956; background: #e6ebd3; }
-.difficulty-choice > .icon { width: 21px; color: #8b9a65; }
-.difficulty-choice strong { display: block; font: 600 12px 'Songti SC',serif; }
-.difficulty-choice small { display: block; margin-top: 3px; font-size: 8px; white-space: nowrap; }
+.difficulty-picker { border: 1px solid #bdc5a0; border-radius: 8px; padding: 13px; margin-bottom: 14px; background: #dae2c866; scroll-margin-top: 10px; }
+.difficulty-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; color: #496541; }
+.difficulty-heading strong { font-size: 13px; }
+.difficulty-heading small { font-size: 9px; color: #7c8b66; }
+.difficulty-current { font-size: 10px; color: #7a8963; margin: 7px 0 10px; }
+.difficulty-current strong { color: #496541; }
+.difficulty-options { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
+.difficulty-choice { grid-column: span 2; min-width: 0; display: flex; flex-direction: column; align-items: stretch; gap: 9px; text-align: left; padding: 10px 12px; border: 1px solid #aebd93; border-radius: 6px; color: #637956; background: #e6ebd3; }
+.difficulty-choice.nightmare,.difficulty-choice.inferno { grid-column: span 3; border-color: #b7a389; background: #e9e5d1; }
+.difficulty-choice-title { display: flex; align-items: center; gap: 7px; }
+.difficulty-choice-title > .icon { width: 19px; height: 19px; color: #8b9a65; }
+.difficulty-choice-title strong { font: 600 13px 'Songti SC',serif; }
+.difficulty-choice-title .difficulty-check { margin-left: auto; width: 15px; height: 15px; }
+.difficulty-values { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px 10px; }
+.difficulty-values small { display: flex; align-items: baseline; justify-content: space-between; gap: 4px; font-size: 9px; white-space: nowrap; }
+.difficulty-values b { font: 600 11px Georgia,serif; }
 .difficulty-choice.chosen { background: #496441; border-color: #d0b877; color: #f3e7b4; box-shadow: inset 0 0 0 1px #d4c78f60; }
-.difficulty-choice.chosen > .icon { color: #e8d699; }
-.difficulty-picker > p { font-size: 8px; line-height: 1.5; margin: 7px 0 0; color: #7a8963; }
+.difficulty-choice.chosen .icon { color: #e8d699; }
+.difficulty-choice.nightmare.chosen,.difficulty-choice.inferno.chosen { background: #715d46; border-color: #cda879; }
+.difficulty-advice { font-size: 10px; line-height: 1.75; margin: 10px 0; color: #758660; }
+.difficulty-deployment { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; border-top: 1px solid #b9c5a0; padding-top: 9px; }
+.difficulty-deployment p { margin: 0; font-size: 9px; color: #7c8b66; line-height: 1.75; }
+.difficulty-deployment strong { display: block; margin-bottom: 2px; color: #506d43; font-size: 10px; }
 .campaign-intro > span { gap: 4px; }
 .campaign-intro button { font: 9px 'PingFang SC',sans-serif; padding: 5px 7px; border-radius: 4px; color: #536b40; background: #ccd8b4; margin-left: 9px; }
 .campaign-card-actions > button { flex-wrap: wrap; gap: 4px; }
 .campaign-card-actions small { font-size: 8px; opacity: .8; }
 .campaign-tactic { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.campaign-badges { display: flex; gap: 5px; min-height: 14px; margin-bottom: -4px; }
+.campaign-badges { display: flex; flex-wrap: wrap; gap: 5px 9px; min-height: 14px; margin-bottom: -4px; }
 .campaign-badges > span { display: flex; align-items: center; gap: 3px; color: #826e3d; font-size: 8px; }
 .campaign-badges .icon { width: 11px; height: 11px; }
 .campaign-badges .heroic { color: #915647; }
+.campaign-badges .nightmare { color: #85637b; }
+.campaign-badges .inferno { color: #a15f3d; }
 .training-intro { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin: 17px 0; }
 .training-intro p { margin: 0 0 6px; font-size: 12px; line-height: 1.8; color: #5c744e; }
 .training-intro small { font-size: 9px; color: #88916b; }
@@ -713,12 +733,30 @@ dialog::backdrop { background: #0f281dcc; backdrop-filter: blur(4px); }
 @media(min-width:601px) { .campaign-map { height: 58px; } .campaign-card-body { padding: 10px 12px; } .campaign-card-body > p { margin: 6px 0 7px; } .campaign-card-actions { margin-top: 9px; } .campaign-grid { gap: 12px; } }
 @media(max-width:800px) { .training-nav > b { position: absolute; right: -3px; top: -5px; width: 13px; height: 13px; min-width: 13px; font-size: 8px; } }
 @media(max-width:600px) {
-  .difficulty-picker { padding: 8px; }
+  .battle-topbar { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 7px 6px; }
+  .resources { grid-row: 1; grid-column: 1; justify-content: space-between; }
+  .battle-actions { grid-row: 1; grid-column: 2; }
+  .difficulty-trigger { grid-row: 2; grid-column: 1 / -1; min-height: 32px; padding: 6px 9px; justify-content: flex-start; font-size: 10px; border-radius: 5px; }
+  .difficulty-trigger > .icon { width: 14px; height: 14px; }
+  .difficulty-trigger small { display: block; margin-left: auto; font-size: 8px; color: #aebe99; }
+  .difficulty-picker { padding: 10px; }
   .difficulty-heading { align-items: flex-start; }
-  .difficulty-heading small { max-width: 150px; text-align: right; line-height: 1.5; }
-  .difficulty-choice { flex-direction: column; align-items: center; text-align: center; padding: 8px 4px; gap: 5px; }
-  .difficulty-choice strong { font-size: 11px; }
-  .difficulty-choice small { font-size: 6px; }
+  .difficulty-heading strong { font-size: 12px; }
+  .difficulty-heading small { max-width: 107px; text-align: right; line-height: 1.5; font-size: 8px; }
+  .difficulty-options { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .difficulty-choice,.difficulty-choice.nightmare,.difficulty-choice.inferno { grid-column: span 1; padding: 9px; gap: 8px; }
+  .difficulty-choice.normal { grid-column: 1 / -1; }
+  .difficulty-choice.normal .difficulty-values { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 7px; }
+  .difficulty-choice-title { gap: 5px; }
+  .difficulty-choice-title > .icon { width: 16px; height: 16px; }
+  .difficulty-choice-title strong { font-size: 12px; }
+  .difficulty-values { gap: 6px 7px; }
+  .difficulty-values small { font-size: 8px; gap: 3px; }
+  .difficulty-values b { font-size: 10px; }
+  .difficulty-choice.normal .difficulty-values small { display: block; }
+  .difficulty-choice.normal .difficulty-values b { display: block; margin-top: 3px; }
+  .difficulty-advice { font-size: 9px; }
+  .difficulty-deployment { grid-template-columns: 1fr; gap: 7px; }
   .training-intro { flex-direction: column; gap: 12px; align-items: stretch; }
   .training-intro p { font-size: 11px; }
   .training-currency { justify-content: center; padding: 8px; }
@@ -731,6 +769,9 @@ dialog::backdrop { background: #0f281dcc; backdrop-filter: blur(4px); }
   .intel-metrics strong { font-size: 20px; }
 }
 @media(max-width:360px) { .header-tools { gap: 3px; } .header-tools .icon-button,.header-tools .nav-button { width: 25px; height: 27px; padding: 0; } .game-header { gap: 7px; } }
+@media(max-width:360px) { .resources { grid-column: 1 / -1; } .battle-actions { grid-row: 2; } .difficulty-trigger { grid-column: 1; } .difficulty-trigger small { display: none; } }
+@media(min-width:601px) and (max-width:800px) { .difficulty-trigger { min-height: 45px; padding: 8px 10px; font-size: 10px; gap: 5px; } }
+@media(min-width:601px) and (max-height:560px) { .difficulty-trigger { min-height: 38px; padding-top: 6px; padding-bottom: 6px; } }
 
 .tower-actions:has(.tower-panel-tabs) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .challenge-picker { padding: 11px; margin: 0 0 14px; border: 1px solid #b9c3a0; border-radius: 7px; background: #dbe4cd; }

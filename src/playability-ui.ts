@@ -1,5 +1,5 @@
 import { DOCTRINES, deriveBattleUpgrades, type BattleUpgrades } from './doctrines';
-import { DIFFICULTY_MULTIPLIERS } from './engine';
+import { DIFFICULTIES, HARD_DIFFICULTIES, DIFFICULTY_MULTIPLIERS } from './difficulties';
 import { icon } from './icons';
 import type { ProgressStore } from './progress';
 import type { Difficulty, TowerPriority } from './types';
@@ -8,6 +8,8 @@ export const DIFFICULTY_UI: Record<Difficulty, { name: string; description: stri
   normal: { name: '经典', description: '熟悉道路，练习混合布阵', glyph: 'shield' },
   veteran: { name: '老兵', description: '厚实的敌军，更考验火力分配', glyph: 'sword' },
   heroic: { name: '英雄', description: '强敌压境，充分利用英雄与专精', glyph: 'flag' },
+  nightmare: { name: '噩梦', description: '熟练运用英雄绝技与减速，迎战更厚重、更快、更密集的敌军', glyph: 'moonblade' },
+  inferno: { name: '炼狱', description: '推荐完成星级训练，精确安排塔专精、集结与四种绝技', glyph: 'meteor' },
 };
 export const PRIORITY_UI: Record<TowerPriority, { name: string; description: string }> = {
   first: { name: '出口', description: '优先攻击最接近出口的敌人，拦住漏网者。' },
@@ -15,11 +17,17 @@ export const PRIORITY_UI: Record<TowerPriority, { name: string; description: str
   weak: { name: '残血', description: '优先攻击当前生命最少的敌人，尽快收割。' },
 };
 
-export function difficultyPicker(selected: Difficulty): string {
-  return `<section class="difficulty-picker" aria-label="新战局难度"><div class="difficulty-heading"><strong>挑战强度</strong><small>仅影响新部署 · 继续存档沿用原难度</small></div><div class="difficulty-options">${(Object.keys(DIFFICULTY_UI) as Difficulty[]).map(id => {
+export function difficultyPicker(selected: Difficulty, current: Difficulty = selected): string {
+  const selectedValues = DIFFICULTY_MULTIPLIERS[selected];
+  const tempo = selectedValues.spawnInterval < 1 ? `出兵间隔缩短 ${Math.round((1 - selectedValues.spawnInterval) * 100)}%，敌军出场更密集。` : '保留原有出兵节奏。';
+  return `<section class="difficulty-picker" id="difficulty-picker" aria-label="新战局难度"><div class="difficulty-heading"><strong>选择新战局难度</strong><small>切换不会改变当前战斗</small></div><p class="difficulty-current">当前防线：<strong>${DIFFICULTY_UI[current].name}</strong></p><div class="difficulty-options">${DIFFICULTIES.map(id => {
     const entry = DIFFICULTY_UI[id], values = DIFFICULTY_MULTIPLIERS[id];
-    return `<button class="difficulty-choice ${selected === id ? 'chosen' : ''}" data-difficulty="${id}" aria-label="选择${entry.name}难度" aria-pressed="${selected === id}">${icon(entry.glyph)}<span><strong>${entry.name}</strong><small>敌生命 ×${values.hp} · 攻击 ×${values.damage}</small></span></button>`;
-  }).join('')}</div><p>${DIFFICULTY_UI[selected].description}。击杀收益相同，高难度通关可获得独立徽章。</p></section>`;
+    return `<button class="difficulty-choice ${id} ${selected === id ? 'chosen' : ''}" data-difficulty="${id}" aria-label="选择${entry.name}难度" aria-pressed="${selected === id}"><span class="difficulty-choice-title">${icon(entry.glyph)}<strong>${entry.name}</strong>${selected === id ? icon('check', 'difficulty-check') : ''}</span><span class="difficulty-values"><small>敌生命 <b>×${values.hp}</b></small><small>攻击伤害 <b>×${values.damage}</b></small><small>移动速度 <b>×${values.speed}</b></small><small>出兵间隔 <b>${Math.round(values.spawnInterval * 100)}%</b></small></span></button>`;
+  }).join('')}</div><p class="difficulty-advice">${DIFFICULTY_UI[selected].description}。${tempo}击杀收益相同。</p><div class="difficulty-deployment"><p><strong>新战局 · ${DIFFICULTY_UI[selected].name}</strong>点击关卡的「重新部署」或「开始关卡」，使用此难度和当前训练。</p><p><strong>继续存档 · 保留原难度</strong>沿用存档的难度与训练，此处选择不会改变续战。高难度成绩独立记录。</p></div></section>`;
+}
+
+export function difficultyBadges(records: Partial<Record<Difficulty, number>>, ruleChallenge = false): string {
+  return (ruleChallenge ? DIFFICULTIES : HARD_DIFFICULTIES).filter(id => (records[id] ?? 0) > 0).map(id => `<span class="${id}">${icon(DIFFICULTY_UI[id].glyph)}${DIFFICULTY_UI[id].name} ${records[id]}${ruleChallenge ? '级徽章' : '★'}</span>`).join('');
 }
 
 const percentage = (value: number, inverse = false) => `${inverse ? '−' : '+'}${Math.round(Math.abs(value - 1) * 100)}%`;

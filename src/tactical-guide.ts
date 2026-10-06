@@ -1,6 +1,7 @@
 import { ENEMY_STATS, getLevel, getTowerStats, LEVELS, SKILLS } from './data';
 import { nearestLevelPathPoint, sampleLevelPath } from './campaign';
-import type { EnemyKind, LevelDefinition, LevelId, Point, SkillKind, TowerKind, Wave } from './types';
+import { DIFFICULTY_MULTIPLIERS } from './difficulties';
+import type { Difficulty, EnemyKind, LevelDefinition, LevelId, Point, SkillKind, TowerKind, Wave } from './types';
 
 export type TacticalTag = 'armored' | 'magic-resistant' | 'fast' | 'swarm' | 'healer' | 'boss' | 'poison' | 'regeneration' | 'slow-resistant' | 'explosive';
 export interface EnemyCounter {
@@ -30,12 +31,12 @@ export interface LevelTactics {
 const unique = <T>(values: T[]): T[] => [...new Set(values)];
 const armored = (kind: EnemyKind) => ENEMY_STATS[kind].armor >= .4;
 const magicResistant = (kind: EnemyKind) => ENEMY_STATS[kind].magicResist >= .3;
-const fast = (kind: EnemyKind) => ENEMY_STATS[kind].speed >= 68;
+const fast = (kind: EnemyKind, difficulty: Difficulty = 'normal') => ENEMY_STATS[kind].speed * DIFFICULTY_MULTIPLIERS[difficulty].speed >= 68;
 const boss = (kind: EnemyKind) => ENEMY_STATS[kind].lives >= 8;
 const resolveLevel = (level: LevelId | LevelDefinition) => typeof level === 'string' ? getLevel(level) : level;
 
 /** Counter recommendations use current resistances and roles; they do not assume a fixed wave script. */
-export function getEnemyCounters(kind: EnemyKind): EnemyCounter {
+export function getEnemyCounters(kind: EnemyKind, difficulty: Difficulty = 'normal'): EnemyCounter {
   const stats = ENEMY_STATS[kind];
   if (!Object.hasOwn(ENEMY_STATS, kind)) throw new Error(`Unknown enemy kind: ${String(kind)}`);
   const tags: TacticalTag[] = [], advice: string[] = [], towers: TowerKind[] = [], skills: SkillKind[] = [];
@@ -51,7 +52,7 @@ export function getEnemyCounters(kind: EnemyKind): EnemyCounter {
     tags.push('magic-resistant'); towers.push('arrow', 'cannon');
     advice.push(`魔抗 ${Math.round(stats.magicResist * 100)}%，搭配物理塔与真实伤害。`);
   }
-  if (fast(kind)) {
+  if (fast(kind, difficulty)) {
     tags.push('fast'); towers.push('barracks', 'arrow'); skills.push('reinforce', 'hero-roots');
     advice.push('在已有火力覆盖的道路集结驻兵，援军拦截漏网者。');
   }
@@ -82,23 +83,24 @@ export function getEnemyCounters(kind: EnemyKind): EnemyCounter {
 }
 
 /** Matches startWave's delayed/serial-group scheduling, including the last actual spawn. */
-function spawnTimes(wave: Wave): number[] {
+function spawnTimes(wave: Wave, difficulty: Difficulty): number[] {
   let cursor = 0;
   const times = wave.enemies.flatMap(group => {
     const start = group.delay ?? cursor;
     cursor = Math.max(cursor, start + group.count * group.interval);
     return Array.from({ length: group.count }, (_, index) => start + index * group.interval);
   });
-  return times.sort((a, b) => a - b);
+  return times.map(time => time * DIFFICULTY_MULTIPLIERS[difficulty].spawnInterval).sort((a, b) => a - b);
 }
 
 /** Distinct fast groups are a tactical flank only when their spawn windows have a real gap. */
-function fastArrivalBatches(wave: Wave): number {
+function fastArrivalBatches(wave: Wave, difficulty: Difficulty): number {
   let cursor = 0;
+  const interval = DIFFICULTY_MULTIPLIERS[difficulty].spawnInterval;
   const windows = wave.enemies.flatMap(group => {
     const start = group.delay ?? cursor;
     cursor = Math.max(cursor, start + group.count * group.interval);
-    return fast(group.kind) ? [{ start, end: start + Math.max(0, group.count - 1) * group.interval }] : [];
+    return fast(group.kind, difficulty) ? [{ start: start * interval, end: (start + Math.max(0, group.count - 1) * group.interval) * interval }] : [];
   }).sort((a, b) => a.start - b.start);
   let batches = 0, end = -Infinity;
   for (const window of windows) {
@@ -108,12 +110,12 @@ function fastArrivalBatches(wave: Wave): number {
   return batches;
 }
 
-export function analyzeWave(levelInput: LevelId | LevelDefinition, waveIndex: number): WaveIntel | null {
+export function analyzeWave(levelInput: LevelId | LevelDefinition, waveIndex: number, difficulty: Difficulty = 'normal'): WaveIntel | null {
   if (!Number.isInteger(waveIndex) || waveIndex < 0) return null;
   const level = typeof levelInput === 'string' ? LEVELS.find(candidate => candidate.id === levelInput) : levelInput;
   const wave = level?.waves[waveIndex]; if (!level || !wave) return null;
   const count = (match: (kind: EnemyKind) => boolean) => wave.enemies.reduce((sum, group) => sum + (match(group.kind) ? group.count : 0), 0);
-  const kinds = unique(wave.enemies.map(group => group.kind)), counters = kinds.map(getEnemyCounters), times = spawnTimes(wave);
+  const kinds = unique(wave.enemies.map(group => group.kind)), counters = kinds.map(kind => getEnemyCounters(kind, difficulty)), times = spawnTimes(wave, difficulty);
   let peakSpawnCount = 0, left = 0;
   for (let right = 0; right < times.length; right++) {
     while (times[right] - times[left] > 3) left++;
@@ -123,8 +125,8 @@ export function analyzeWave(levelInput: LevelId | LevelDefinition, waveIndex: nu
   if (peakSpawnCount >= 5) tags.push('swarm');
   const towers: TowerKind[] = [], skills: SkillKind[] = [], advice: string[] = [], warnings: string[] = [];
   const has = (tag: TacticalTag) => tags.includes(tag);
-  const armoredCount = count(armored), magicResistantCount = count(magicResistant), fastCount = count(fast), bossCount = count(boss);
-  const fastBatches = fastArrivalBatches(wave);
+  const armoredCount = count(armored), magicResistantCount = count(magicResistant), fastCount = count(kind => fast(kind, difficulty)), bossCount = count(boss);
+  const fastBatches = fastArrivalBatches(wave, difficulty);
   if (fastBatches > 1) {
     advice.push(`快敌分 ${fastBatches} 批到达，驻兵守住输出区，为后批保留援军或荆棘。`);
     warnings.push('首批快敌清场后仍有后续突袭，不要过早提前放波。');
@@ -196,8 +198,8 @@ function tacticalPositions(level: LevelDefinition): TacticalPosition[] {
     .sort((a, b) => b.coverage - a.coverage || a.pathProgress - b.pathProgress || a.slotId - b.slotId).slice(0, 2);
 }
 
-export function getLevelTactics(levelInput: LevelId | LevelDefinition): LevelTactics {
-  const level = resolveLevel(levelInput), waves = level.waves.map((_, index) => analyzeWave(level, index)!);
+export function getLevelTactics(levelInput: LevelId | LevelDefinition, difficulty: Difficulty = 'normal'): LevelTactics {
+  const level = resolveLevel(levelInput), waves = level.waves.map((_, index) => analyzeWave(level, index, difficulty)!);
   const firstWave = waves[0];
   const specialties = unique(waves.flatMap(wave => wave.tags));
   const advice: string[] = [], towers: TowerKind[] = [...firstWave.recommendedTowers];

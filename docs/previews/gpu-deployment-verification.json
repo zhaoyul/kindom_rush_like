@@ -1,9 +1,14 @@
 {
   "url": "http://106.12.6.24:5173/",
-  "release": "20261006T052809Z",
+  "release": "20261006T070318Z",
+  "verifiedAt": "2026-10-06T07:04:59.113580+00:00",
   "filesVerified": 47,
   "voiceFilesVerified": 42,
-  "bytesVerified": 1302460,
+  "bytesVerified": 1308648,
+  "health": {
+    "status": 200,
+    "body": "verdant-guard ok"
+  },
   "audioRange": {
     "status": 206,
     "bytes": 128,
@@ -12,18 +17,18 @@
   "missingAssetStatus": 404,
   "files": [
     {
-      "path": "assets/index-CzGitSDr.js",
+      "path": "assets/index-BXYxG1xL.js",
       "status": 200,
-      "bytes": 298455,
-      "sha256": "0982fe6a9ae3c938f3a34458fc5e34895b9d2afce684f950844d1c3798337bde",
+      "bytes": 301245,
+      "sha256": "e4cb86028743fb30eb50c8a9051cedc7433b80e407ee8155665b8abee1d1e838",
       "contentType": "application/javascript; charset=utf-8",
       "cacheControl": "public, max-age=31536000, immutable"
     },
     {
-      "path": "assets/index-DbQpoCv3.css",
+      "path": "assets/index-DIj8r25-.css",
       "status": 200,
-      "bytes": 59964,
-      "sha256": "82283c84055ec374c23d0f1cc0b9f7ad6b965cc81c3c940da38179ae4fc8244f",
+      "bytes": 63362,
+      "sha256": "fd500c48f48caac22fb83e010a4e26f977e85944b2657edd4ea16d56f4c96a6f",
       "contentType": "text/css",
       "cacheControl": "public, max-age=31536000, immutable"
     },
@@ -39,7 +44,7 @@
       "path": "index.html",
       "status": 200,
       "bytes": 655,
-      "sha256": "8b57d82bf350aa99f23d6272e03d3ec3d9dbc2aa365a80b4099c7c26f150a065",
+      "sha256": "e56569209f56ed6321b433658ce87ed21bd5932aae26108918875bfdc8fe509d",
       "contentType": "text/html; charset=utf-8",
       "cacheControl": "no-cache"
     },

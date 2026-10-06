@@ -1,5 +1,6 @@
 import { DOCTRINES, sanitizeDoctrineRanks, type DoctrineId, type DoctrineRanks } from './doctrines';
 import { isChallengeMode, isRuleChallenge } from './challenges';
+import { DIFFICULTIES, HARD_DIFFICULTIES, isDifficulty } from './difficulties';
 import type { ChallengeMode, Difficulty } from './types';
 
 /** Campaign records and an independent resumable battle for each level, stored in this browser. */
@@ -7,7 +8,7 @@ export const PROGRESS_KEY = 'verdant-campaign-v1';
 export interface SaveStorage { getItem(key: string): string | null; setItem(key: string, value: string): void }
 export interface LevelRecord {
   stars: number; bestLives: number; victories: number;
-  challengeStars?: { veteran?: number; heroic?: number };
+  challengeStars?: Partial<Record<Exclude<Difficulty, 'normal'>, number>>;
 }
 export interface RuleRecord { medal: number; bestLives: number; victories: number }
 export interface CampaignProgress {
@@ -19,12 +20,12 @@ export interface CampaignProgress {
   ruleRecords: Record<string, Partial<Record<Difficulty, RuleRecord>>>;
 }
 const object = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value);
-const difficultyValid = (value: unknown): value is Difficulty => value === 'normal' || value === 'veteran' || value === 'heroic';
 const ruleKey = (id: string, mode: ChallengeMode): string => `${id}::${mode}`;
 /** Full simulation validation belongs to the engine; storage verifies the slot's identity. */
 function checkpointMatches(value: unknown, id: string, mode: ChallengeMode): boolean {
   if (!object(value)) return false;
   if (Object.hasOwn(value, 'levelId') && value.levelId !== id) return false;
+  if (Object.hasOwn(value, 'difficulty') && !isDifficulty(value.difficulty)) return false;
   if (mode === 'standard') return !Object.hasOwn(value, 'challenge') || value.challenge === 'standard';
   return Object.hasOwn(value, 'challenge') && value.challenge === mode && value.levelId === id;
 }
@@ -65,7 +66,7 @@ export class ProgressStore {
         bestLives: Number.isInteger(record.bestLives) && record.bestLives >= 0 && record.bestLives <= 100 ? record.bestLives : 0,
         victories: Number.isInteger(record.victories) && record.victories > 0 ? Math.min(record.victories, 1_000_000) : 1 };
       const badges: NonNullable<LevelRecord['challengeStars']> = {};
-      for (const difficulty of ['veteran', 'heroic'] as const) {
+      for (const difficulty of HARD_DIFFICULTIES) {
         const stars = record.challengeStars && Object.hasOwn(record.challengeStars, difficulty) ? record.challengeStars[difficulty] : undefined;
         if (typeof stars === 'number' && Number.isInteger(stars) && stars >= 1 && stars <= 3) badges[difficulty] = stars;
       }
@@ -86,7 +87,7 @@ export class ProgressStore {
         const records = object(source.ruleRecords) && Object.hasOwn(source.ruleRecords, key) ? source.ruleRecords[key] : null;
         if (!object(records)) continue;
         const valid: Partial<Record<Difficulty, RuleRecord>> = {};
-        for (const difficulty of ['normal', 'veteran', 'heroic'] as const) {
+        for (const difficulty of DIFFICULTIES) {
           const record = Object.hasOwn(records, difficulty) ? records[difficulty] : null;
           if (!object(record) || !Number.isInteger(record.medal) || (record.medal as number) < 1 || (record.medal as number) > 3
             || !Number.isInteger(record.bestLives) || (record.bestLives as number) < 1 || (record.bestLives as number) > 100
@@ -115,11 +116,11 @@ export class ProgressStore {
     return isChallengeMode(mode) && this.isUnlocked(id, progress) && (mode === 'standard' || !!progress.completed[id]);
   }
   getRuleRecord(id: string, mode: ChallengeMode, difficulty: Difficulty = 'normal'): RuleRecord | null {
-    if (!isRuleChallenge(mode) || !difficultyValid(difficulty) || !this.isChallengeUnlocked(id, mode)) return null;
+    if (!isRuleChallenge(mode) || !isDifficulty(difficulty) || !this.isChallengeUnlocked(id, mode)) return null;
     return this.progress.ruleRecords[ruleKey(id, mode)]?.[difficulty] ?? null;
   }
   recordRuleVictory(id: string, mode: ChallengeMode, lives: number, startingLives = 20, restoring = false, difficulty: Difficulty = 'normal'): RuleRecord | null {
-    if (!isRuleChallenge(mode) || !difficultyValid(difficulty) || !this.isChallengeUnlocked(id, mode)
+    if (!isRuleChallenge(mode) || !isDifficulty(difficulty) || !this.isChallengeUnlocked(id, mode)
       || !Number.isInteger(lives) || lives < 1 || !Number.isInteger(startingLives) || startingLives < 1 || startingLives > 100 || lives > startingLives) return null;
     const key = ruleKey(id, mode), old = this.getRuleRecord(id, mode, difficulty);
     const record: RuleRecord = { medal: Math.max(old?.medal ?? 0, victoryStars(lives, startingLives)),
@@ -127,8 +128,8 @@ export class ProgressStore {
     this.progress.ruleRecords[key] = { ...this.progress.ruleRecords[key], [difficulty]: record };
     this.write(); return record;
   }
-  recordVictory(id: string, lives: number, startingLives = 20, restoring = false, difficulty: 'normal' | 'veteran' | 'heroic' = 'normal'): LevelRecord | null {
-    if (!this.isUnlocked(id) || !Number.isFinite(lives) || lives < 0 || !Number.isFinite(startingLives) || startingLives <= 0) return null;
+  recordVictory(id: string, lives: number, startingLives = 20, restoring = false, difficulty: Difficulty = 'normal'): LevelRecord | null {
+    if (!isDifficulty(difficulty) || !this.isUnlocked(id) || !Number.isFinite(lives) || lives < 0 || !Number.isFinite(startingLives) || startingLives <= 0) return null;
     const old = this.progress.completed[id];
     const stars = victoryStars(lives, startingLives);
     const record: LevelRecord = { stars: Math.max(old?.stars ?? 0, stars),
@@ -136,7 +137,7 @@ export class ProgressStore {
       // A restored victory can repair a missing result without counting the same battle twice.
       victories: restoring ? Math.max(old?.victories ?? 0, 1) : (old?.victories ?? 0) + 1 };
     if (old?.challengeStars) record.challengeStars = { ...old.challengeStars };
-    if (difficulty === 'veteran' || difficulty === 'heroic') {
+    if (difficulty !== 'normal') {
       record.challengeStars ??= {};
       record.challengeStars[difficulty] = Math.max(record.challengeStars[difficulty] ?? 0, stars);
     }

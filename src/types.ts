@@ -3,7 +3,7 @@ export type TowerKind = 'arrow' | 'mage' | 'barracks' | 'cannon';
 export type TowerBranchId = 'arrow-ranger' | 'arrow-sniper' | 'mage-arcane' | 'mage-frost'
   | 'cannon-cluster' | 'cannon-siege' | 'barracks-warden' | 'barracks-blade';
 export type TowerPriority = 'first' | 'strong' | 'weak';
-export type Difficulty = 'normal' | 'veteran' | 'heroic';
+export type Difficulty = 'normal' | 'veteran' | 'heroic' | 'nightmare' | 'inferno';
 export type ChallengeMode = 'standard' | 'four-towers' | 'no-meteor';
 export interface EarlyWaveOffer { available: boolean; gold: number; cooldownReduction: number; reason?: string }
 export type TowerAbilityKind = 'arrow-volley' | 'arrow-deadeye' | 'arrow-snare'

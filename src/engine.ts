@@ -6,20 +6,17 @@ import { getBranchChoiceCost, getTowerBranch, getTowerCombatStats, getTowerInves
 import { createBattleReport, isValidBattleReport } from './battle-report';
 import { getMapEventDefinition } from './map-events';
 
-export const DIFFICULTY_MULTIPLIERS = Object.freeze({
-  normal: Object.freeze({ hp: 1, damage: 1 }),
-  veteran: Object.freeze({ hp: 1.25, damage: 1.12 }),
-  heroic: Object.freeze({ hp: 1.5, damage: 1.2 }),
-});
+import { DIFFICULTY_MULTIPLIERS, isDifficulty } from './difficulties';
+export { DIFFICULTY_MULTIPLIERS } from './difficulties';
 export interface GameOptions { difficulty?: Difficulty; upgrades?: BattleUpgrades; rulesVersion?: 1 | 2; challenge?: ChallengeMode }
 const challengeModes: ChallengeMode[] = ['standard', 'four-towers', 'no-meteor'];
 const priorities: TowerPriority[] = ['first', 'strong', 'weak'];
-const waveQueue = (level: LevelDefinition, waveIndex: number): GameState['spawnQueue'] => {
+const waveQueue = (level: LevelDefinition, waveIndex: number, difficulty: Difficulty): GameState['spawnQueue'] => {
   let cursor = 0;
   return level.waves[waveIndex].enemies.flatMap(group => {
     const start = group.delay ?? cursor;
     cursor = Math.max(cursor, start + group.count * group.interval);
-    return Array.from({ length: group.count }, (_, i) => ({ kind: group.kind, time: start + i * group.interval }));
+    return Array.from({ length: group.count }, (_, i) => ({ kind: group.kind, time: (start + i * group.interval) * DIFFICULTY_MULTIPLIERS[difficulty].spawnInterval }));
   }).sort((a, b) => a.time - b.time);
 };
 const validUpgrades = (value: unknown): value is BattleUpgrades => {
@@ -75,7 +72,7 @@ export class GameEngine {
     this.battleChallenge = options.challenge ?? 'standard';
     if (!challengeModes.includes(this.battleChallenge)) throw new Error('未知规则挑战。');
     this.battleDifficulty = options.difficulty ?? 'normal';
-    if (!Object.hasOwn(DIFFICULTY_MULTIPLIERS, this.battleDifficulty)) throw new Error('未知难度。');
+    if (!isDifficulty(this.battleDifficulty)) throw new Error('未知难度。');
     const upgrades = options.upgrades ?? deriveBattleUpgrades();
     if (!validUpgrades(upgrades)) throw new Error('永久天赋参数无效。');
     this.battleUpgrades = Object.freeze({ ...upgrades });
@@ -440,7 +437,7 @@ export class GameEngine {
     this.state.waveElapsed = 0;
     this.state.phase = 'battle';
     this.ensureReportWave();
-    this.state.spawnQueue = waveQueue(this.level, this.state.wave - 1);
+    this.state.spawnQueue = waveQueue(this.level, this.state.wave - 1, this.difficulty);
     return this.announce(success(`第 ${this.state.wave} 波 · ${wave.name}`));
   }
 
@@ -451,8 +448,8 @@ export class GameEngine {
     if (this.state.spawnQueue.length) return unavailable('本波仍有敌人尚未进场。');
     const remaining = this.state.enemies.filter(enemy => enemy.hp > 0);
     if (!remaining.length) return unavailable('本波已清场，请领取补给后开始下一波。');
-    // Use base walking speed; roots, slowing and blocking cannot inflate the reward.
-    const seconds = Math.max(...remaining.map(enemy => Math.max(0, this.pathLength - enemy.progress) / ENEMY_STATS[enemy.kind].speed));
+    // Use deployment walking speed; roots, slowing and blocking cannot inflate the reward.
+    const seconds = Math.max(...remaining.map(enemy => Math.max(0, this.pathLength - enemy.progress) / (ENEMY_STATS[enemy.kind].speed * DIFFICULTY_MULTIPLIERS[this.difficulty].speed)));
     return { available: true, gold: Math.min(25, Math.floor(seconds * 0.5)), cooldownReduction: 4 };
   }
 
@@ -477,7 +474,7 @@ export class GameEngine {
     this.ensureReportWave();
     this.observeReportWave();
     this.state.waveElapsed = 0;
-    this.state.spawnQueue = waveQueue(this.level, this.state.wave - 1);
+    this.state.spawnQueue = waveQueue(this.level, this.state.wave - 1, this.difficulty);
     return this.announce(success(`第 ${this.state.wave} 波提前进场！补给 +${supply}、冒险奖金 +${offer.gold} 金币，技能冷却减少 ${offer.cooldownReduction} 秒。`));
   }
 
@@ -834,7 +831,7 @@ export class GameEngine {
         }
       } else {
         const slow = (enemy.slowAmount ?? 0.35) * (enemy.kind === 'icewolf' ? 0.5 : 1);
-        enemy.progress += stats.speed * ((enemy.rootTimer ?? 0) > 0 ? 0 : enemy.slowTimer > 0 ? 1 - slow : 1) * dt;
+        enemy.progress += stats.speed * DIFFICULTY_MULTIPLIERS[this.difficulty].speed * ((enemy.rootTimer ?? 0) > 0 ? 0 : enemy.slowTimer > 0 ? 1 - slow : 1) * dt;
         if (enemy.kind === 'bogling') enemy.hp = Math.min(enemy.maxHp, enemy.hp + 3 * dt);
         const position = this.samplePath(enemy.progress);
         this.face(enemy, position);
@@ -1202,7 +1199,7 @@ function validSave(input: unknown): input is GameSave {
     && optionalNumber(entity.attackVariant, 1e7) && (entity.facingX === undefined || typeof entity.facingX === 'number' && Number.isFinite(entity.facingX) && Math.abs(entity.facingX) <= 1.001)
     && (entity.facingY === undefined || typeof entity.facingY === 'number' && Number.isFinite(entity.facingY) && Math.abs(entity.facingY) <= 1.001);
   if (!object(input) || input.version !== 1 || !LEVELS.some(level => level.id === input.levelId) || !integer(input.seed, 0xffffffff)) return false;
-  if (input.difficulty !== undefined && (typeof input.difficulty !== 'string' || !Object.hasOwn(DIFFICULTY_MULTIPLIERS, input.difficulty))) return false;
+  if (input.difficulty !== undefined && !isDifficulty(input.difficulty)) return false;
   if (input.upgrades !== undefined && !validUpgrades(input.upgrades)) return false;
   if (input.rulesVersion !== undefined && input.rulesVersion !== 1 && input.rulesVersion !== 2) return false;
   if (input.challenge !== undefined && !challengeModes.includes(input.challenge)) return false;
@@ -1354,7 +1351,7 @@ function validSave(input: unknown): input is GameSave {
     previousSpawnTime = spawn.time;
   }
   if (state.wave > 0) {
-    const schedule = waveQueue(level, state.wave - 1), skipped = schedule.length - state.spawnQueue.length;
+    const schedule = waveQueue(level, state.wave - 1, difficulty), skipped = schedule.length - state.spawnQueue.length;
     if (skipped < 0 || schedule.slice(0, skipped).some(spawn => spawn.time > state.waveElapsed + 1e-6)
       || state.spawnQueue.some((spawn: GameState['spawnQueue'][number], index: number) => {
         const expected = schedule[skipped + index];
